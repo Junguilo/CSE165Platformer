@@ -40,16 +40,20 @@ void MainWindow::paintGL(){
 void MainWindow::keyPressEvent(QKeyEvent *event) {
     switch(event->key()) {
     case Qt::Key_W:
-        qDebug() << "test";
+        //Handle 'w' key pressed
+        qDebug() << "W";
         break;
     case Qt::Key_A:
         // Handle 'a' key pressed
+        qDebug() << "A";
         break;
     case Qt::Key_S:
         // Handle 's' key pressed
+        qDebug() << "S";
         break;
     case Qt::Key_D:
         // Handle 'd' key pressed
+        qDebug() << "D";
         break;
     case Qt::Key_Escape:
         QApplication::exit();
