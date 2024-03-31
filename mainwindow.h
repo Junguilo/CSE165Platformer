@@ -16,6 +16,7 @@ public:
     ~MainWindow();
 
 protected:
+    //These are basic openGLFunctions, overrided to use.
     void initializeGL() override;
     void resizeGL(int w, int h) override;
     void paintGL() override;

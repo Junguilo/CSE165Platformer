@@ -40,7 +40,7 @@ void MainWindow::paintGL(){
 void MainWindow::keyPressEvent(QKeyEvent *event) {
     switch(event->key()) {
     case Qt::Key_W:
-        // Handle 'w' key pressed
+        qDebug() << "test";
         break;
     case Qt::Key_A:
         // Handle 'a' key pressed
