@@ -27,7 +27,7 @@ find_package(Qt6 COMPONENTS
 #Define sources
 set(PROJECT_SOURCES
         src/main.cpp
-        src/mainwindow.cpp
+        src/window.cpp
 )
 
 #Define Header Files
@@ -42,7 +42,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         include/glwidget.h
         src/glwidget.cpp
-        include/mainwindow.h
+        include/window.h
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET CSE165Platformer APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
