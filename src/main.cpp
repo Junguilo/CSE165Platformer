@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     //testing widgets for qt function
     auto bottomWidget = new QWidget;
     auto bottomLayout = new QHBoxLayout(bottomWidget);
-    bottomWidget->setLayout(bottomLayout);
+    //bottomWidget->setLayout(bottomLayout);
    layout->addWidget(bottomWidget);
 
 

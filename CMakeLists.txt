@@ -9,6 +9,10 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+#Add directories containing Header files
+include_directories(include)
+
+#Finding QT Packages
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(Qt6 COMPONENTS
@@ -20,20 +24,25 @@ find_package(Qt6 COMPONENTS
         Network
         REQUIRED)
 
-
-
-
+#Define sources
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
+        src/main.cpp
+        src/mainwindow.cpp
 )
+
+#Define Header Files
+set(PROJECT_HEADERS
+        src/mainwindow.h
+)
+
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(CSE165Platformer
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        glwidget.h glwidget.cpp
+        include/glwidget.h
+        src/glwidget.cpp
+        include/mainwindow.h
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET CSE165Platformer APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -41,15 +50,15 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
-        add_library(CSE165Platformer SHARED
-            ${PROJECT_SOURCES}
-        )
-# Define properties for Android with Qt 5 after find_package() calls as:
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
+    add_library(CSE165Platformer SHARED
+        ${PROJECT_SOURCES}
+        ${PROJECT_HEADERS}
+    )
     else()
-        add_executable(CSE165Platformer
-            ${PROJECT_SOURCES}
-        )
+    add_executable(CSE165Platformer
+        ${PROJECT_SOURCES}
+        ${PROJECT_HEADERS}
+    )
     endif()
 endif()
 
