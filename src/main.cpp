@@ -16,9 +16,6 @@ int main(int argc, char *argv[])
     //OpenGLWindow Setup
     Window w;
 
-
-    //resize basic Qt Window, not the OpenGLView
-    w.resize(1080,940);
     w.show();
     return app.exec();
 }

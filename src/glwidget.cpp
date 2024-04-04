@@ -1,7 +1,14 @@
 #include "glwidget.h"
 
-GLWidget::GLWidget() {}
+//sets the size of our openGLWindow
+GLWidget::GLWidget() {
+    setFixedSize(800,800);
+}
 
+GLWidget::~GLWidget(){
+    makeCurrent();
+    doneCurrent();
+}
 
 void GLWidget::initializeGL(){
     initializeOpenGLFunctions();
