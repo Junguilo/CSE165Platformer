@@ -6,6 +6,7 @@
 #include <QOpenGLFunctions>
 #include <QDebug>
 #include <QKeyEvent>
+#include <QPainter>
 
 class MainWindow : public QOpenGLWidget, protected QOpenGLFunctions
 {
@@ -16,10 +17,11 @@ public:
     ~MainWindow();
 
 protected:
-    //These are basic openGLFunctions, overrided to use.
+    //These are basic QOpenGLWidget Functions, overrided to use.
     void initializeGL() override;
     void resizeGL(int w, int h) override;
     void paintGL() override;
+    //not an OpenGLFunction
     void keyPressEvent(QKeyEvent *event) override;
 };
 #endif // MAINWINDOW_H

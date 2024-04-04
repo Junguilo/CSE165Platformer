@@ -4,15 +4,18 @@ MainWindow::MainWindow(QWidget *parent) : QOpenGLWidget(parent) {}
 
 MainWindow::~MainWindow() {}
 
+//Runs all the other OpenGL Functions
 void MainWindow::initializeGL(){
     initializeOpenGLFunctions();
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 }
 
+//The size of the window
 void MainWindow::resizeGL(int w, int h){
     glViewport(0,0,w,h);
 }
 
+//Drawing the sprites
 void MainWindow::paintGL(){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -37,6 +40,7 @@ void MainWindow::paintGL(){
     glEnd();
 }
 
+//KeyPress events
 void MainWindow::keyPressEvent(QKeyEvent *event) {
     switch(event->key()) {
     case Qt::Key_W:
