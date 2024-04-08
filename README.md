@@ -1,1 +1,1 @@
-CSE 165 Platformer Project made with QT and QOpenGLWidgets. 
+CSE 165 formerly a Platformer Project now a railshooter made with QT and QOpenGLWidgets. 
