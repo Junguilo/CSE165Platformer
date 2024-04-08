@@ -15,7 +15,7 @@ public:
     GLWidget();
     ~GLWidget() override;
 private:
-    //Standard OpenGLFunctions
+    //Standard OpenGLWidget Functions
     void initializeGL() override;
     void resizeGL(int w, int h) override;
     void paintGL() override;
@@ -26,6 +26,20 @@ private:
     //void mousePressEvent(QMouseEvent *event) override;
     //void mouseReleaseEvent(QMouseEvent *event) override;
     //void mouseMoveEvent(QMouseEvent *event) override;
+
+    //Player stuff, move to another class later
+    float triangleX = 0.0f;
+    float triangleY = 0.0f;
+    float gravity = 0.2f;
+    float gravitySpeed = 0.0f;
+
+
+    //another method for time used in another example
+    int elapsed;
+
+    //calculating the currentTime - elapsedTime diff
+    float timeDelta;
+    std::chrono::time_point<std::chrono::steady_clock> lastFrameTime;
 };
 
 #endif // GLWIDGET_H

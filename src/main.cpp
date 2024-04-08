@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
     //OpenGLWindow Setup
     Window w;
 
+    //run the window
     w.show();
     return app.exec();
 }
