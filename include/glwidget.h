@@ -4,10 +4,8 @@
 #include <QApplication>
 #include <QOpenGLWidget>
 #include <QOpenGLFunctions>
-#include <QOpenGLBuffer>
 #include <QDebug>
 #include <QKeyEvent>
-
 
 class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 {
@@ -19,20 +17,18 @@ private:
     void initializeGL() override;
     void resizeGL(int w, int h) override;
     void paintGL() override;
+    void drawImageAsQuad(const QString& imagePath);
 
     //Other QT functions to handle input
     void keyPressEvent(QKeyEvent *event) override;
     //void keyReleaseEvent(QKeyEvent *event) override;
-    //void mousePressEvent(QMouseEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
     //void mouseReleaseEvent(QMouseEvent *event) override;
     //void mouseMoveEvent(QMouseEvent *event) override;
 
     //Player stuff, move to another class later
     float triangleX = 0.0f;
     float triangleY = 0.0f;
-    float gravity = 0.2f;
-    float gravitySpeed = 0.0f;
-
 
     //another method for time used in another example
     int elapsed;

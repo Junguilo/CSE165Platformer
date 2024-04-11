@@ -9,9 +9,12 @@ int main(int argc, char *argv[])
 
     //Set OpenGL Information
     QSurfaceFormat format;
-    format.setRenderableType(QSurfaceFormat::OpenGL);
+    format.setDepthBufferSize(24);
+    format.setStencilBufferSize(8);
+    format.setSwapInterval(10);
+    // format.setVersion(4, 1);
     format.setProfile(QSurfaceFormat::CoreProfile);
-    format.setVersion(3, 3);
+    QSurfaceFormat::setDefaultFormat(format);
 
     //OpenGLWindow Setup
     Window w;

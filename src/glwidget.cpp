@@ -15,36 +15,57 @@ GLWidget::~GLWidget(){
 void GLWidget::initializeGL(){
     initializeOpenGLFunctions();
 
-    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+    //state setting Function
+    glClearColor(0.07f,0.13f,0.17f,1.0f);
 }
 
 void GLWidget::resizeGL(int w, int h){
+
     glViewport(0,0,w,h);
 }
 
 void GLWidget::paintGL(){
+    //state using function
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    //i think these were drawn on top of the screen, rather than any viewport
-    glBegin(GL_LINES);
-    glColor3f(1.0f, 0.0f, 0.0f);
-    glVertex2f(-0.5f, 0.0f);
-    glColor3f(0.0f, 1.0f, 0.0f);
-    glVertex2f(0.5f, 0.0f);
+    //Draw the map, move to a function later
+    //Center
+    glColor3f(0.82, 0.82, 0.82);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.5, -0.5);   // Bottom-left vertex
+    glVertex2f(0.5, -0.5);    // Bottom-right vertex
+    glVertex2f(0.5, 0.5);     // Top-right vertex
+    glVertex2f(-0.5, 0.5);    // Top-left vertex
     glEnd();
 
-    glColor3f(0.0f, 0.0f, 1.0f);
-    glBegin(GL_LINES);
-    glVertex2f(0.0f, -0.5f);
-    glVertex2f(0.0f, 0.5f);
+    //Center Bottom
+    glColor3f(0.549, 0.549, 0.549);
+    glBegin(GL_QUADS);
+    glVertex2f(-1, -1);   // Bottom-left vertex
+    glVertex2f(1, -1);    // Bottom-right vertex
+    glVertex2f(0.5, -0.5);     // Top-right vertex
+    glVertex2f(-0.5, -0.5);    // Top-left vertex
     glEnd();
 
+    //CenterTop
+    glColor3f(0.549, 0.549, 0.549);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.5, 0.5);   // Bottom-left vertex
+    glVertex2f(0.5, 0.5);    // Bottom-right vertex
+    glVertex2f(1, 1);     // Top-right vertex
+    glVertex2f(-1, 1);    // Top-left vertex
+    glEnd();
+    //End of Map
+
+
+    //input test, del later
     glColor3f(1.0f, 1.0f, 1.0f);
     glBegin(GL_TRIANGLES);
     glVertex2f(0.1f + triangleX, 0.1f + triangleY);
     glVertex2f(0.4f + triangleX, 0.1f + triangleY);
     glVertex2f(0.25f + triangleX, 0.4f + triangleY);
     glEnd();
+
 
     //put in another function for use later for gravity and animation
     //put here for testing
@@ -53,7 +74,7 @@ void GLWidget::paintGL(){
     timeDelta = diff.count(); // compute time diff between frames in seconds
     lastFrameTime = now;
 
-    qDebug() << timeDelta;
+    //qDebug() << timeDelta;
     update();
 }
 
@@ -86,5 +107,28 @@ void GLWidget::keyPressEvent(QKeyEvent *event){
         break;
     default:
         QOpenGLWidget::keyPressEvent(event);
+    }
+}
+
+void GLWidget::mousePressEvent(QMouseEvent *event) {
+    switch(event->button()) {
+    case Qt::LeftButton:{
+            // Translate position to center
+            float centerX = event->pos().x() - width() / 2.0f;
+            float centerY = height() / 2.0f - event->pos().y();
+
+            // Scale to range -1 to 1
+            float normalizedX = (2.0f * centerX) / width();
+            float normalizedY = (2.0f * centerY) / height();
+
+            qDebug() << "Position:" << normalizedX << "," << normalizedY;
+            break;
+    }
+    case Qt::RightButton:{
+        qDebug() << "------------------";
+        break;
+    }
+        default:
+            QOpenGLWidget::mousePressEvent(event);
     }
 }
