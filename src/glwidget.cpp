@@ -15,6 +15,9 @@ GLWidget::~GLWidget(){
 void GLWidget::initializeGL(){
     initializeOpenGLFunctions();
 
+    //testMongus, health, attack, posX, posY
+    //will have to have an enemy spawner later.
+    test = new EnemyMongus(10, 2, 0.0f, 0.0f);
     //state setting Function
     glClearColor(0.07f,0.13f,0.17f,1.0f);
 }
@@ -56,10 +59,11 @@ void GLWidget::paintGL(){
     glVertex2f(-1, 1);    // Top-left vertex
     glEnd();
     //End of Map
-
+    //will draw the enemies
+    test->draw();
 
     //input test, del later
-    glColor3f(1.0f, 1.0f, 1.0f);
+    glColor3f(0.5f, 0.5f, 0.5f);
     glBegin(GL_TRIANGLES);
     glVertex2f(0.1f + triangleX, 0.1f + triangleY);
     glVertex2f(0.4f + triangleX, 0.1f + triangleY);

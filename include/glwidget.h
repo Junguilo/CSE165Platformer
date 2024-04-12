@@ -6,6 +6,7 @@
 #include <QOpenGLFunctions>
 #include <QDebug>
 #include <QKeyEvent>
+#include "/home/june/Documents/Code/UCM Programming/CSE165/QTPROJECTS/Platformer/CSE165Platformer/src/enemymongus.h"
 
 class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 {
@@ -29,6 +30,8 @@ private:
     //Player stuff, move to another class later
     float triangleX = 0.0f;
     float triangleY = 0.0f;
+
+    EnemyMongus *test;
 
     //another method for time used in another example
     int elapsed;

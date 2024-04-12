@@ -45,6 +45,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         include/window.h
         Assets/resources.qrc
         src/entity.h src/entity.cpp
+        src/enemymongus.h src/enemymongus.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET CSE165Platformer APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
