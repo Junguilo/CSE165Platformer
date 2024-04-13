@@ -41,7 +41,7 @@ void EnemyMongus::draw(){
     //all the frames will be drawn as functions.
     //idleFrame();
     //runOneFrame();
-    //runTwoFrame();
+    runTwoFrame();
 }
 
 void EnemyMongus::idleFrame(){
