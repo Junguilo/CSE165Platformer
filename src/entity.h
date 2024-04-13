@@ -8,13 +8,13 @@ class Entity
 public:
     Entity();
     ~Entity();
+    float positionX;
+    float positionY;
 
 protected:
     //stats shared with all entities
     int health;
     int attack;
-    float positionX;
-    float positionY;
 
     //hopefully for when you click on the entity
     //if your mouse pos is in range, it will return true

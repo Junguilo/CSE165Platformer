@@ -18,7 +18,6 @@ private:
     void initializeGL() override;
     void resizeGL(int w, int h) override;
     void paintGL() override;
-    void drawImageAsQuad(const QString& imagePath);
 
     //Other QT functions to handle input
     void keyPressEvent(QKeyEvent *event) override;
@@ -32,6 +31,8 @@ private:
     float triangleY = 0.0f;
 
     EnemyMongus *test;
+    void mapDraw();
+
 
     //another method for time used in another example
     int elapsed;

@@ -30,34 +30,7 @@ void GLWidget::resizeGL(int w, int h){
 void GLWidget::paintGL(){
     //state using function
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    //Draw the map, move to a function later
-    //Center
-    glColor3f(0.82, 0.82, 0.82);
-    glBegin(GL_QUADS);
-    glVertex2f(-0.5, -0.5);   // Bottom-left vertex
-    glVertex2f(0.5, -0.5);    // Bottom-right vertex
-    glVertex2f(0.5, 0.5);     // Top-right vertex
-    glVertex2f(-0.5, 0.5);    // Top-left vertex
-    glEnd();
-
-    //Center Bottom
-    glColor3f(0.549, 0.549, 0.549);
-    glBegin(GL_QUADS);
-    glVertex2f(-1, -1);   // Bottom-left vertex
-    glVertex2f(1, -1);    // Bottom-right vertex
-    glVertex2f(0.5, -0.5);     // Top-right vertex
-    glVertex2f(-0.5, -0.5);    // Top-left vertex
-    glEnd();
-
-    //CenterTop
-    glColor3f(0.549, 0.549, 0.549);
-    glBegin(GL_QUADS);
-    glVertex2f(-0.5, 0.5);   // Bottom-left vertex
-    glVertex2f(0.5, 0.5);    // Bottom-right vertex
-    glVertex2f(1, 1);     // Top-right vertex
-    glVertex2f(-1, 1);    // Top-left vertex
-    glEnd();
+    mapDraw();
     //End of Map
     //will draw the enemies
     test->draw();
@@ -117,6 +90,7 @@ void GLWidget::keyPressEvent(QKeyEvent *event){
 void GLWidget::mousePressEvent(QMouseEvent *event) {
     switch(event->button()) {
     case Qt::LeftButton:{
+        //This code just gets the position so it makes drawing w/ code easier
             // Translate position to center
             float centerX = event->pos().x() - width() / 2.0f;
             float centerY = height() / 2.0f - event->pos().y();
@@ -135,4 +109,35 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
         default:
             QOpenGLWidget::mousePressEvent(event);
     }
+}
+
+
+void GLWidget::mapDraw(){
+    //Draw the map, move to a function later
+    //Center
+    glColor3f(0.82, 0.82, 0.82);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.5, -0.5);   // Bottom-left vertex
+    glVertex2f(0.5, -0.5);    // Bottom-right vertex
+    glVertex2f(0.5, 0.5);     // Top-right vertex
+    glVertex2f(-0.5, 0.5);    // Top-left vertex
+    glEnd();
+
+    //Center Bottom
+    glColor3f(0.549, 0.549, 0.549);
+    glBegin(GL_QUADS);
+    glVertex2f(-1, -1);   // Bottom-left vertex
+    glVertex2f(1, -1);    // Bottom-right vertex
+    glVertex2f(0.5, -0.5);     // Top-right vertex
+    glVertex2f(-0.5, -0.5);    // Top-left vertex
+    glEnd();
+
+    //CenterTop
+    glColor3f(0.549, 0.549, 0.549);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.5, 0.5);   // Bottom-left vertex
+    glVertex2f(0.5, 0.5);    // Bottom-right vertex
+    glVertex2f(1, 1);     // Top-right vertex
+    glVertex2f(-1, 1);    // Top-left vertex
+    glEnd();
 }
