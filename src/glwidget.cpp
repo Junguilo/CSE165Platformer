@@ -44,14 +44,7 @@ void GLWidget::paintGL(){
     glEnd();
 
 
-    //put in another function for use later for gravity and animation
-    //put here for testing
-    auto now = std::chrono::steady_clock::now();
-    std::chrono::duration<float> diff = std::chrono::duration_cast<std::chrono::milliseconds>(now - lastFrameTime);
-    timeDelta = diff.count(); // compute time diff between frames in seconds
-    lastFrameTime = now;
-
-    //qDebug() << timeDelta;
+    //needed in order to draw every frame
     update();
 }
 

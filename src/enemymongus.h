@@ -2,19 +2,30 @@
 #define ENEMYMONGUS_H
 #include "entity.h"
 
-
 class EnemyMongus: public Entity
 {
 public:
     EnemyMongus();
     EnemyMongus(int health, int attack, float positionX, float positionY);
-    void draw();
+    ~EnemyMongus();
 
-    //maybe we need these??
+    //maybe we need these for hitboxes??
     int getEnemyHealth() const;
     int getEnemyAttack() const;
     float getEnemyPositionX() const;
     float getEnemyPositionY() const;
+    //Animation Functions
+    int frame = 0;
+    float scale = 1.0f;
+    void draw();
+
+    QTimer *animationTimer;
+    QTimer *scaleTimer;
+    void stopTimers();
+public slots:
+    void incrementFrame();
+    void incrementScale();
+
 private:
     void idleFrame();
     void runOneFrame();

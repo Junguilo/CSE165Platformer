@@ -6,7 +6,7 @@
 #include <QOpenGLFunctions>
 #include <QDebug>
 #include <QKeyEvent>
-#include "/home/june/Documents/Code/UCM Programming/CSE165/QTPROJECTS/Platformer/CSE165Platformer/src/enemymongus.h"
+#include "enemymongus.h"
 
 class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 {

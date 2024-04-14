@@ -11,6 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #Add directories containing Header files
 include_directories(include)
+include_directories(src)
 
 #Finding QT Packages
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
@@ -32,7 +33,7 @@ set(PROJECT_SOURCES
 
 #Define Header Files
 set(PROJECT_HEADERS
-        src/mainwindow.h
+        mainwindow.h
 )
 
 

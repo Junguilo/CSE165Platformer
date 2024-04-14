@@ -2,9 +2,11 @@
 #define ENTITY_H
 #include <QDebug>
 #include <QOpenGLFunctions>
+#include <QObject>
 
-class Entity
+class Entity: public QObject
 {
+    Q_OBJECT
 public:
     Entity();
     ~Entity();
