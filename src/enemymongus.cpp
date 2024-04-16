@@ -1,22 +1,26 @@
 #include "enemymongus.h"
-#include <QTimer>
 
 EnemyMongus::EnemyMongus() {
     qDebug() << "Enemy Created with No Stats, please add Stats";
 }
 
-EnemyMongus::EnemyMongus(int health, int attack, float positionX, float positionY){
-    setHealth(health);
-    setAttack(attack);
+EnemyMongus::EnemyMongus(float positionX, float positionY){
+    //the Health and Attack Vals of this enemy is hardcoded.
+    setHealth(10);
+    setAttack(2);
+
     setPosition(positionX, positionY);
+    setHitbox(-0.2625f, 0.1625f, //tl
+              0.0525f, 0.1625f,  //tr
+              0.0525f, -0.1625f,  //br
+              -0.2625f, -0.1625f); //bl
+
     qDebug() << "Enemy Created with these Stats";
     qDebug() << "Health: " << getHealth();
     qDebug() << "Attack: " << getAttack();
     qDebug() << "PositionX: " << getPositionX();
     qDebug() << "PositionY: " << getPositionY();
-
-    //Draws the Frames
-    draw();
+    //sounds
 
     //Timer for created Mungus' Animation
     //This timer will increment the Frame variable and can be used for animation
@@ -32,7 +36,7 @@ EnemyMongus::EnemyMongus(int health, int attack, float positionX, float position
 }
 
 EnemyMongus::~EnemyMongus(){
-
+    //when a mongus dies, add points to the qtText
 }
 
 int EnemyMongus::getEnemyHealth() const{
@@ -51,6 +55,41 @@ float EnemyMongus::getEnemyPositionY() const{
     return getPositionY();
 }
 
+//Draw Hitbox Lines for Debugging
+void EnemyMongus::updateHitbox(){
+    glColor3f(1.0f, 0.992f, 0.518f);
+    glBegin(GL_LINES);
+        glVertex2f(hitboxOneX, hitboxOneY);
+        glVertex2f(hitboxTwoX, hitboxTwoY);
+    glEnd();
+
+    glColor3f(1.0f, 0.992f, 0.518f);
+    glBegin(GL_LINES);
+    glVertex2f(hitboxTwoX, hitboxTwoY);
+    glVertex2f(hitboxThreeX, hitboxThreeY);
+    glEnd();
+
+    glColor3f(1.0f, 0.992f, 0.518f);
+    glBegin(GL_LINES);
+    glVertex2f(hitboxThreeX, hitboxThreeY);
+    glVertex2f(hitboxFourX, hitboxFourY);
+    glEnd();
+
+    glColor3f(1.0f, 0.992f, 0.518f);
+    glBegin(GL_LINES);
+    glVertex2f(hitboxFourX, hitboxFourY);
+    glVertex2f(hitboxOneX, hitboxOneY);
+    glEnd();
+
+    //update hitboxes for scaling and position
+    setHitbox((-0.2625f + getPositionX()) * scale, (0.1625f + getPositionY()) * scale,  // tl
+              (0.0525f + getPositionX()) * scale, (0.1625f + getPositionY()) * scale,  // tr
+              (0.0525f + getPositionX()) * scale, (-0.1625f + getPositionY()) * scale, // br
+              (-0.2625f + getPositionX()) * scale, (-0.1625f + getPositionY()) * scale);// bl
+
+
+}
+
 
 //For SLOT Timer Functions
 void EnemyMongus::incrementFrame(){
@@ -61,7 +100,7 @@ void EnemyMongus::incrementScale(){
     scale += 0.15f;
     qDebug() << scale;
 
-    if(scale >= 3.0f){
+    if(scale >= 5.0f){
         scaleTimer->stop();
         animationTimer->stop();
         frame = 0;

@@ -6,7 +6,7 @@ GLWidget::GLWidget() {
     setFixedSize(800,800);
 }
 
-//not really needed, just so it destroys the opengl stuff
+//not really needed, just so it destroys the opengl stuff when done
 GLWidget::~GLWidget(){
     makeCurrent();
     doneCurrent();
@@ -17,7 +17,7 @@ void GLWidget::initializeGL(){
 
     //testMongus, health, attack, posX, posY
     //will have to have an enemy spawner later.
-    test = new EnemyMongus(10, 2, 0.0f, 0.0f);
+    test = new EnemyMongus(0.0f, 0.0f);
     //state setting Function
     glClearColor(0.07f,0.13f,0.17f,1.0f);
 }
@@ -34,52 +34,13 @@ void GLWidget::paintGL(){
     //End of Map
     //will draw the enemies
     test->draw();
-
-    //input test, del later
-    glColor3f(0.5f, 0.5f, 0.5f);
-    glBegin(GL_TRIANGLES);
-    glVertex2f(0.1f + triangleX, 0.1f + triangleY);
-    glVertex2f(0.4f + triangleX, 0.1f + triangleY);
-    glVertex2f(0.25f + triangleX, 0.4f + triangleY);
-    glEnd();
-
+    test->updateHitbox();
 
     //needed in order to draw every frame
     update();
 }
 
-void GLWidget::keyPressEvent(QKeyEvent *event){
-    //needs to be changed to handle multiple button inputs
-    //this only takes in one key at a time
-    switch(event->key()) {
-    case Qt::Key_W:
-        //Handle 'w' key pressed
-        triangleY += 0.01f;
-        qDebug() << "W";
-        break;
-    case Qt::Key_A:
-        triangleX -= 0.01;
-        // Handle 'a' key pressed
-        qDebug() << "A";
-        break;
-    case Qt::Key_S:
-        triangleY -= 0.01f;
-        // Handle 's' key pressed
-        qDebug() << "S";
-        break;
-    case Qt::Key_D:
-        triangleX += 0.01f;
-        // Handle 'd' key pressed
-        qDebug() << "D";
-        break;
-    case Qt::Key_Escape:
-        QApplication::exit();
-        break;
-    default:
-        QOpenGLWidget::keyPressEvent(event);
-    }
-}
-
+//MOUSE EVENT HERE
 void GLWidget::mousePressEvent(QMouseEvent *event) {
     switch(event->button()) {
     case Qt::LeftButton:{
@@ -93,6 +54,9 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
             float normalizedY = (2.0f * centerY) / height();
 
             qDebug() << "Position:" << normalizedX << "," << normalizedY;
+
+            //adding the hitbox here
+            test->checkHitbox(normalizedX, normalizedY);
             break;
     }
     case Qt::RightButton:{

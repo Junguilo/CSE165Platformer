@@ -6,7 +6,7 @@ class EnemyMongus: public Entity
 {
 public:
     EnemyMongus();
-    EnemyMongus(int health, int attack, float positionX, float positionY);
+    EnemyMongus(float positionX, float positionY);
     ~EnemyMongus();
 
     //maybe we need these for hitboxes??
@@ -22,6 +22,10 @@ public:
     QTimer *animationTimer;
     QTimer *scaleTimer;
     void stopTimers();
+
+    void updateHitbox();
+
+    //slots are needed to increment vars with QTimer
 public slots:
     void incrementFrame();
     void incrementScale();

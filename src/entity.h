@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QOpenGLFunctions>
 #include <QObject>
+#include <QTimer>
 
 class Entity: public QObject
 {
@@ -13,26 +14,32 @@ public:
     float positionX;
     float positionY;
 
+    //hopefully for when you click on the entity
+    //if your mouse pos is in range, it will return true
+    float hitboxOneX; //topLeft
+    float hitboxOneY;
+
+    float hitboxTwoX;
+    float hitboxTwoY; //topRight
+
+    float hitboxThreeX;
+    float hitboxThreeY; //bottomLeft
+
+    float hitboxFourX;
+    float hitboxFourY; //bottomRight
+
+    void checkHitbox(float x, float y);
 protected:
     //stats shared with all entities
     int health;
     int attack;
 
-    //hopefully for when you click on the entity
-    //if your mouse pos is in range, it will return true
-    float hitboxOne; //topLeft
-    float hitboxTwo; //topRight
-    float hitboxThree; //bottomLeft
-    float hitboxFour; //bottomRight
-
     bool isHit;
 
     void setHealth(int health);
     void setAttack(int attack);
-    void setPositionX(float positionX);
-    void setPositionY(float positionY);
     void setPosition(float positionX, float positionY);
-    void setHitbox(float hitboxOne, float hitboxTwo, float hitboxThree, float hitboxFour);
+    void setHitbox(float hitboxOneX, float hitboxOneY, float hitboxTwoX, float hitboxTwoY, float hitboxThreeX, float hitboxThreeY, float hitboxFourX, float hitboxFourY);
     void setHit(bool isHit);
 
     int getHealth() const;
