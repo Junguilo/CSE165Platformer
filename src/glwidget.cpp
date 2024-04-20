@@ -17,7 +17,9 @@ void GLWidget::initializeGL(){
 
     //testMongus, health, attack, posX, posY
     //will have to have an enemy spawner later.
-    test = new EnemyMongus(0.0f, 0.0f);
+    test = new EnemyMongus(0.6f, 0.5f);
+
+    testTwo = new EnemyMongus(0.0f, 0.0f);
     //state setting Function
     glClearColor(0.07f,0.13f,0.17f,1.0f);
 }
@@ -33,8 +35,13 @@ void GLWidget::paintGL(){
     mapDraw();
     //End of Map
     //will draw the enemies
+
+    //Draws Enemies & Hitboxes
     test->draw();
     test->updateHitbox();
+
+    testTwo->draw();
+    testTwo->updateHitbox();
 
     //needed in order to draw every frame
     update();
@@ -57,6 +64,7 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
 
             //adding the hitbox here
             test->checkHitbox(normalizedX, normalizedY);
+            testTwo->checkHitbox(normalizedX, normalizedY);
             break;
     }
     case Qt::RightButton:{

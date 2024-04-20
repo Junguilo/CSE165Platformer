@@ -29,6 +29,7 @@ private:
     //void mouseMoveEvent(QMouseEvent *event) override;
 
     EnemyMongus *test;
+    EnemyMongus *testTwo;
     void mapDraw();
 
 

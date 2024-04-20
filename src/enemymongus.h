@@ -12,8 +12,7 @@ public:
     //maybe we need these for hitboxes??
     int getEnemyHealth() const;
     int getEnemyAttack() const;
-    float getEnemyPositionX() const;
-    float getEnemyPositionY() const;
+
     //Animation Functions
     int frame = 0;
     float scale = 1.0f;
@@ -21,6 +20,7 @@ public:
 
     QTimer *animationTimer;
     QTimer *scaleTimer;
+    QTimer *centerTimer;
     void stopTimers();
 
     void updateHitbox();
@@ -31,6 +31,8 @@ public slots:
     void incrementScale();
 
 private:
+    void setCenter();
+
     void idleFrame();
     void runOneFrame();
     void runTwoFrame();

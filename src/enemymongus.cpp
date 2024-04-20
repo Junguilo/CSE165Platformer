@@ -6,8 +6,8 @@ EnemyMongus::EnemyMongus() {
 
 EnemyMongus::EnemyMongus(float positionX, float positionY){
     //the Health and Attack Vals of this enemy is hardcoded.
-    setHealth(10);
-    setAttack(2);
+    setHealth(3);
+    setAttack(1);
 
     setPosition(positionX, positionY);
     setHitbox(-0.2625f, 0.1625f, //tl
@@ -33,6 +33,12 @@ EnemyMongus::EnemyMongus(float positionX, float positionY){
     scaleTimer = new QTimer();
     connect(scaleTimer, &QTimer::timeout, this, &EnemyMongus::incrementScale);
     scaleTimer->start(200);
+
+
+    //movement regardless of scale, show esteban later
+    //centerTimer = new QTimer();
+    //connect(centerTimer, &QTimer::timeout, this, &EnemyMongus::setCenter);
+    //centerTimer->start(200);
 }
 
 EnemyMongus::~EnemyMongus(){
@@ -45,14 +51,6 @@ int EnemyMongus::getEnemyHealth() const{
 
 int EnemyMongus::getEnemyAttack() const{
     return getAttack();
-}
-
-float EnemyMongus::getEnemyPositionX() const{
-    return getPositionX();
-}
-
-float EnemyMongus::getEnemyPositionY() const{
-    return getPositionY();
 }
 
 //Draw Hitbox Lines for Debugging
@@ -97,19 +95,42 @@ void EnemyMongus::incrementFrame(){
 }
 
 void EnemyMongus::incrementScale(){
-    scale += 0.15f;
-    qDebug() << scale;
+    scale += 0.10f;
+    //qDebug() << scale;
 
-    if(scale >= 5.0f){
+    //add it here because the scale messes up our position
+    setCenter();
+    if(scale >= 4.0f){
         scaleTimer->stop();
         animationTimer->stop();
         frame = 0;
     }
 }
-//With an animator(draw()), we can take these functions and make a switch statement
-//in order to change the frame of the pictures.
-//Switch statement? or Timer used in an if statement in order to animate.
-//We will probably need to find a way to get the hitboxes of the entities.
+
+void EnemyMongus::setCenter(){
+    float x = getPositionX();
+    float y = getPositionY();
+    //as the enemy scales up to be bigger in the screen, move character little by little to center
+    //we do this because the character positioning is weird
+    qDebug() << "Position X: " << x;
+    qDebug() << "Position Y: "<< y;
+
+    if(x > 0.1f){
+        x = x - 0.03f;
+    } else if(x <= 0.2f){
+        x = x + 0.03f;
+    }
+
+    if(y > -0.1f){
+        y = y - 0.03f;
+    } else if(x < -0.2f){
+        y = y + 0.05f;
+    }
+
+    setPosition(x, y);
+
+}
+
 void EnemyMongus::draw(){
     //will make this the animator,
     //all the frames will be drawn as functions.

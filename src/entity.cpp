@@ -9,7 +9,6 @@ Entity::~Entity(){
     qDebug() << "Entity Deleted";
 }
 
-
 //this function will be used in mouseClick Event,
 void Entity::checkHitbox(float x, float y){
     //remember
