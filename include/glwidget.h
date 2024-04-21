@@ -6,6 +6,9 @@
 #include <QOpenGLFunctions>
 #include <QDebug>
 #include <QKeyEvent>
+#include <QMediaPlayer>
+#include <QAudioOutput>
+#include <QUrl>
 
 //move this to its own enemy Spawner class
 #include "enemymongus.h"
@@ -20,6 +23,9 @@ private:
     void initializeGL() override;
     void resizeGL(int w, int h) override;
     void paintGL() override;
+    QMediaPlayer *mediaPlayer;
+    QAudioOutput *audioOutput;
+    QMediaPlayer *backgroundPlayer;
 
     //Other QT functions to handle input
     //void keyPressEvent(QKeyEvent *event) override;

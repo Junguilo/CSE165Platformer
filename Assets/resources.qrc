@@ -36,5 +36,7 @@
         <file>Images/UISprites/HealthBar/CSE165HealthBar2.png</file>
         <file>Images/UISprites/HealthBar/CSE165HealthBar1.png</file>
         <file>Images/HealthPotion/Health.png</file>
+        <file>../sounds/shooting.mp3</file>
+        <file>sounds/theme.mp3</file>
     </qresource>
 </RCC>

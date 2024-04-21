@@ -4,6 +4,33 @@
 GLWidget::GLWidget() {
     elapsed = 0;
     setFixedSize(800,800);
+
+    // sound effects
+    mediaPlayer = new QMediaPlayer(this);
+    audioOutput = new QAudioOutput(this);
+    mediaPlayer->setAudioOutput(audioOutput);
+    mediaPlayer->setSource(QUrl("qrc:/sounds/shooting.mp3"));
+    audioOutput->setVolume(0.5);
+
+
+    //  audio output and media player for the background song
+    QAudioOutput *backgroundAudioOutput = new QAudioOutput(this);
+    QMediaPlayer *backgroundPlayer = new QMediaPlayer(this);
+
+
+    backgroundPlayer->setAudioOutput(backgroundAudioOutput);
+
+    // source directory
+    backgroundPlayer->setSource(QUrl("qrc:/sounds/theme.mp3"));
+
+    //loop forever
+    backgroundPlayer->setLoops(QMediaPlayer::Infinite);
+
+    backgroundAudioOutput->setVolume(0.1);
+
+    // play theme
+    backgroundPlayer->play();
+
 }
 
 //not really needed, just so it destroys the opengl stuff when done
@@ -54,6 +81,14 @@ void GLWidget::paintGL(){
 //MOUSE EVENT HERE
 void GLWidget::mousePressEvent(QMouseEvent *event) {
     bool hitAnyEntity = false; // Flag to track if any entity was hit
+
+    // Play sound when the left button is clicked
+    if (event->button() == Qt::LeftButton) {
+
+         mediaPlayer->stop();
+         mediaPlayer->play();
+
+    }
 
     switch(event->button()) {
     case Qt::LeftButton: {
