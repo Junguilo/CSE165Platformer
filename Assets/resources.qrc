@@ -2,5 +2,39 @@
     <qresource prefix="/">
         <file>Images/monke.jpeg</file>
         <file>Images/Catge.png</file>
+        <file>Images/MongusSprites/CSE165Sprite1.png</file>
+        <file>Images/MongusSprites/CSE165Sprite2.png</file>
+        <file>Images/MongusSprites/CSE165Sprite3.png</file>
+        <file>Images/SkeletonEnemy/ThrowSprite/SkeletonThrow5.png</file>
+        <file>Images/SkeletonEnemy/ThrowSprite/SkeletonThrow4.png</file>
+        <file>Images/SkeletonEnemy/ThrowSprite/SkeletonThrow3.png</file>
+        <file>Images/SkeletonEnemy/ThrowSprite/SkeletonThrow2.png</file>
+        <file>Images/SkeletonEnemy/ThrowSprite/SkeletonThrow1.png</file>
+        <file>Images/SkeletonEnemy/ReloadSprite/SkeletonReload5.png</file>
+        <file>Images/SkeletonEnemy/ReloadSprite/SkeletonReload4.png</file>
+        <file>Images/SkeletonEnemy/ReloadSprite/SkeletonReload3.png</file>
+        <file>Images/SkeletonEnemy/ReloadSprite/SkeletonReload2.png</file>
+        <file>Images/SkeletonEnemy/ReloadSprite/SkeletonReload1.png</file>
+        <file>Images/SkeletonEnemy/KnifeThrow/KnifeThrow4.png</file>
+        <file>Images/SkeletonEnemy/KnifeThrow/KnifeThrow3.png</file>
+        <file>Images/SkeletonEnemy/KnifeThrow/KnifeThrow2.png</file>
+        <file>Images/SkeletonEnemy/KnifeThrow/KnifeThrow1.png</file>
+        <file>Images/UISprites/Reload/ReloadingBullets3.png</file>
+        <file>Images/UISprites/Reload/ReloadingBullets2.png</file>
+        <file>Images/UISprites/Reload/ReloadingBullets1.png</file>
+        <file>Images/UISprites/Reload/Reloading7.png</file>
+        <file>Images/UISprites/Reload/Reloading6.png</file>
+        <file>Images/UISprites/Reload/Reloading5.png</file>
+        <file>Images/UISprites/Reload/Reloading4.png</file>
+        <file>Images/UISprites/Reload/Reloading3.png</file>
+        <file>Images/UISprites/Reload/Reloading2.png</file>
+        <file>Images/UISprites/Reload/Reloading1.png</file>
+        <file>Images/UISprites/HealthBar/CSE165HealthBar6.png</file>
+        <file>Images/UISprites/HealthBar/CSE165HealthBar5.png</file>
+        <file>Images/UISprites/HealthBar/CSE165HealthBar4.png</file>
+        <file>Images/UISprites/HealthBar/CSE165HealthBar3.png</file>
+        <file>Images/UISprites/HealthBar/CSE165HealthBar2.png</file>
+        <file>Images/UISprites/HealthBar/CSE165HealthBar1.png</file>
+        <file>Images/HealthPotion/Health.png</file>
     </qresource>
 </RCC>
