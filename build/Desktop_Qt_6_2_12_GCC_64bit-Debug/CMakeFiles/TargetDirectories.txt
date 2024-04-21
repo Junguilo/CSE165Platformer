@@ -1,0 +1,9 @@
+/home/esteban/Documents/GitHub/CSE165Platformer/build/Desktop_Qt_6_2_12_GCC_64bit-Debug/CMakeFiles/CSE165Platformer.dir
+/home/esteban/Documents/GitHub/CSE165Platformer/build/Desktop_Qt_6_2_12_GCC_64bit-Debug/CMakeFiles/edit_cache.dir
+/home/esteban/Documents/GitHub/CSE165Platformer/build/Desktop_Qt_6_2_12_GCC_64bit-Debug/CMakeFiles/rebuild_cache.dir
+/home/esteban/Documents/GitHub/CSE165Platformer/build/Desktop_Qt_6_2_12_GCC_64bit-Debug/CMakeFiles/list_install_components.dir
+/home/esteban/Documents/GitHub/CSE165Platformer/build/Desktop_Qt_6_2_12_GCC_64bit-Debug/CMakeFiles/install.dir
+/home/esteban/Documents/GitHub/CSE165Platformer/build/Desktop_Qt_6_2_12_GCC_64bit-Debug/CMakeFiles/install/local.dir
+/home/esteban/Documents/GitHub/CSE165Platformer/build/Desktop_Qt_6_2_12_GCC_64bit-Debug/CMakeFiles/install/strip.dir
+/home/esteban/Documents/GitHub/CSE165Platformer/build/Desktop_Qt_6_2_12_GCC_64bit-Debug/CMakeFiles/CSE165Platformer_autogen_timestamp_deps.dir
+/home/esteban/Documents/GitHub/CSE165Platformer/build/Desktop_Qt_6_2_12_GCC_64bit-Debug/CMakeFiles/CSE165Platformer_autogen.dir

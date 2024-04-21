@@ -37,11 +37,15 @@ void GLWidget::paintGL(){
     //will draw the enemies
 
     //Draws Enemies & Hitboxes
-    test->draw();
-    test->updateHitbox();
+    if (test && test->alive) {
+        test->draw();
+        test->updateHitbox();
+    }
 
-    testTwo->draw();
-    testTwo->updateHitbox();
+    if (testTwo && testTwo->alive) {
+        testTwo->draw();
+        testTwo->updateHitbox();
+    }
 
     //needed in order to draw every frame
     update();
@@ -49,32 +53,73 @@ void GLWidget::paintGL(){
 
 //MOUSE EVENT HERE
 void GLWidget::mousePressEvent(QMouseEvent *event) {
+    bool hitAnyEntity = false; // Flag to track if any entity was hit
+
     switch(event->button()) {
-    case Qt::LeftButton:{
-        //This code just gets the position so it makes drawing w/ code easier
-            // Translate position to center
-            float centerX = event->pos().x() - width() / 2.0f;
-            float centerY = height() / 2.0f - event->pos().y();
+    case Qt::LeftButton: {
+        // Translate position to center
+        float centerX = event->pos().x() - width() / 2.0f;
+        float centerY = height() / 2.0f - event->pos().y();
 
-            // Scale to range -1 to 1
-            float normalizedX = (2.0f * centerX) / width();
-            float normalizedY = (2.0f * centerY) / height();
+        // Scale to range -1 to 1
+        float normalizedX = (2.0f * centerX) / width();
+        float normalizedY = (2.0f * centerY) / height();
 
-            qDebug() << "Position:" << normalizedX << "," << normalizedY;
+        qDebug() << "Position:" << normalizedX << "," << normalizedY;
 
-            //adding the hitbox here
+        // Check if the click hit the first entity
+        if (test) {
             test->checkHitbox(normalizedX, normalizedY);
+            if (test->isEnemyHit()) {
+                hitAnyEntity = true;
+                qDebug() << "Hit first entity with health:" << test->getEnemyHealth();
+                // Reduce the health of the first entity
+                test->reduceHealth();
+
+                // Check if the entity is dead and handle it
+                if (!test->alive) {
+                    delete test;
+                    test = nullptr;
+                }
+            }
+        }
+
+        // Check if the click hit the second entity
+        if (testTwo) {
             testTwo->checkHitbox(normalizedX, normalizedY);
-            break;
-    }
-    case Qt::RightButton:{
-        qDebug() << "------------------";
+            if (testTwo->isEnemyHit()) {
+                hitAnyEntity = true;
+                qDebug() << "Hit second entity with health:" << testTwo->getEnemyHealth();
+                // Reduce the health of the second entity
+                testTwo->reduceHealth();
+
+                // Check if the entity is dead and handle it
+                if (!testTwo->alive) {
+                    delete testTwo;
+                    testTwo = nullptr;
+                }
+            }
+        }
+
+        // Handle click not hitting any entities
+        if (!hitAnyEntity) {
+            qDebug() << "No entity was hit.";
+            // Optionally, you can perform some action here, e.g., moving the player character
+        }
+
         break;
     }
-        default:
-            QOpenGLWidget::mousePressEvent(event);
+    case Qt::RightButton: {
+        qDebug() << "Right button clicked.";
+        break;
+    }
+    default:
+        qDebug() << "Unhandled mouse button event.";
+        break;
     }
 }
+
+
 
 
 void GLWidget::mapDraw(){

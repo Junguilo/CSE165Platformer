@@ -28,9 +28,11 @@ public:
 
     float hitboxFourX;
     float hitboxFourY; //bottomRight
+    bool alive;
 
     void checkHitbox(float x, float y);
-protected:
+//removed protected
+
     //stats shared with all entities
     int health;
     int attack;
@@ -42,6 +44,8 @@ protected:
     void setPosition(float positionX, float positionY);
     void setHitbox(float hitboxOneX, float hitboxOneY, float hitboxTwoX, float hitboxTwoY, float hitboxThreeX, float hitboxThreeY, float hitboxFourX, float hitboxFourY);
     void setHit(bool isHit);
+
+    void reduceHealth();
 
     int getHealth() const;
     int getAttack() const;

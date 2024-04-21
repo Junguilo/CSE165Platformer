@@ -43,6 +43,8 @@ EnemyMongus::EnemyMongus(float positionX, float positionY){
 
 EnemyMongus::~EnemyMongus(){
     //when a mongus dies, add points to the qtText
+
+    qDebug() << "mugus Deleted";
 }
 
 int EnemyMongus::getEnemyHealth() const{
@@ -52,6 +54,11 @@ int EnemyMongus::getEnemyHealth() const{
 int EnemyMongus::getEnemyAttack() const{
     return getAttack();
 }
+
+bool EnemyMongus::isEnemyHit() const {
+    return getHit();
+}
+
 
 //Draw Hitbox Lines for Debugging
 void EnemyMongus::updateHitbox(){

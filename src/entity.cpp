@@ -2,11 +2,13 @@
 
 Entity::Entity() {
     qDebug() << "Entity Created";
+    alive = true;
 }
 
 
 Entity::~Entity(){
     qDebug() << "Entity Deleted";
+
 }
 
 //this function will be used in mouseClick Event,
@@ -45,6 +47,15 @@ void Entity::setHitbox(float hitboxOneX, float hitboxOneY, float hitboxTwoX, flo
     this->hitboxThreeY = hitboxThreeY;
     this->hitboxFourX = hitboxFourX;
     this->hitboxFourY = hitboxFourY;
+}
+
+void Entity::reduceHealth() {
+    if (health > 0) {
+        health--;
+    }
+    if (health <= 0) {
+        alive = false;
+    }
 }
 
 void Entity::setHit(bool isHit){

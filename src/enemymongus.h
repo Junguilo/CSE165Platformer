@@ -25,6 +25,8 @@ public:
 
     void updateHitbox();
 
+    bool isEnemyHit() const;
+
     //slots are needed to increment vars with QTimer
 public slots:
     void incrementFrame();
