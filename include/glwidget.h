@@ -12,6 +12,8 @@
 
 //move this to its own enemy Spawner class
 #include "enemymongus.h"
+#include "skeletonenemy.h"
+#include "skeletonknife.h"
 
 class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 {
@@ -34,8 +36,10 @@ private:
     //void mouseReleaseEvent(QMouseEvent *event) override;
     //void mouseMoveEvent(QMouseEvent *event) override;
 
-    EnemyMongus *test;
-    EnemyMongus *testTwo;
+    EnemyMongus *mungusOne;
+    EnemyMongus *mungusTwo;
+    SkeletonEnemy *skeletonEnemy;
+    SkeletonKnife *skeletonKnife;
     void mapDraw();
 
 

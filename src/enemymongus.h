@@ -21,7 +21,6 @@ public:
     QTimer *animationTimer;
     QTimer *scaleTimer;
     QTimer *centerTimer;
-    void stopTimers();
 
     void updateHitbox();
 

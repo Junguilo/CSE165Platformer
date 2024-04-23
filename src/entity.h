@@ -2,6 +2,8 @@
 #define ENTITY_H
 #include <QDebug>
 #include <QOpenGLFunctions>
+#include <QImage>
+#include <QPainter>
 #include <QObject>
 #include <QTimer>
 

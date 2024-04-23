@@ -47,6 +47,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         Assets/resources.qrc
         src/entity.h src/entity.cpp
         src/enemymongus.h src/enemymongus.cpp
+        src/skeletonenemy.h src/skeletonenemy.cpp
+        src/skeletonknife.h src/skeletonknife.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET CSE165Platformer APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

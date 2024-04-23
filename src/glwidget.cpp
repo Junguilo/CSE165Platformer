@@ -44,9 +44,13 @@ void GLWidget::initializeGL(){
 
     //testMongus, health, attack, posX, posY
     //will have to have an enemy spawner later.
-    test = new EnemyMongus(0.6f, 0.5f);
+    mungusOne = new EnemyMongus(0.8f, -0.2f);
 
-    testTwo = new EnemyMongus(0.0f, 0.0f);
+    mungusTwo = new EnemyMongus(-0.8f, -0.2f);
+
+    skeletonEnemy = new SkeletonEnemy(300, 300);
+
+    skeletonKnife = new SkeletonKnife(420, 350);
     //state setting Function
     glClearColor(0.07f,0.13f,0.17f,1.0f);
 }
@@ -62,18 +66,29 @@ void GLWidget::paintGL(){
     mapDraw();
     //End of Map
     //will draw the enemies
-
     //Draws Enemies & Hitboxes
-    if (test && test->alive) {
-        test->draw();
-        test->updateHitbox();
+    if (skeletonEnemy && skeletonEnemy->alive) {
+        skeletonEnemy->draw(this);
+        skeletonEnemy->updateHitbox();
     }
 
-    if (testTwo && testTwo->alive) {
-        testTwo->draw();
-        testTwo->updateHitbox();
+    if (mungusOne && mungusOne->alive) {
+        mungusOne->draw();
+        mungusOne->updateHitbox();
     }
 
+    if (mungusTwo && mungusTwo->alive) {
+        mungusTwo->draw();
+        mungusTwo->updateHitbox();
+    }
+
+    // down here, needs to be drawn on top of enemies
+    if (skeletonEnemy && skeletonEnemy->alive) {
+        if(skeletonEnemy->isThrowing){
+            skeletonKnife->draw(this);
+            skeletonKnife->updateSkeleThrow(*skeletonEnemy);
+        }
+    }
     //needed in order to draw every frame
     update();
 }
@@ -103,39 +118,55 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
         qDebug() << "Position:" << normalizedX << "," << normalizedY;
 
         // Check if the click hit the first entity
-        if (test) {
-            test->checkHitbox(normalizedX, normalizedY);
-            if (test->isEnemyHit()) {
+        if (mungusOne) {
+            mungusOne->checkHitbox(normalizedX, normalizedY);
+            if (mungusOne->isEnemyHit()) {
                 hitAnyEntity = true;
-                qDebug() << "Hit first entity with health:" << test->getEnemyHealth();
+                qDebug() << "Hit first entity with health:" << mungusOne->getEnemyHealth();
                 // Reduce the health of the first entity
-                test->reduceHealth();
+                mungusOne->reduceHealth();
 
                 // Check if the entity is dead and handle it
-                if (!test->alive) {
-                    delete test;
-                    test = nullptr;
+                if (!mungusOne->alive) {
+                    delete mungusOne;
+                    mungusOne = nullptr;
                 }
             }
         }
 
         // Check if the click hit the second entity
-        if (testTwo) {
-            testTwo->checkHitbox(normalizedX, normalizedY);
-            if (testTwo->isEnemyHit()) {
+        if (mungusTwo) {
+            mungusTwo->checkHitbox(normalizedX, normalizedY);
+            if (mungusTwo->isEnemyHit()) {
                 hitAnyEntity = true;
-                qDebug() << "Hit second entity with health:" << testTwo->getEnemyHealth();
+                qDebug() << "Hit second entity with health:" << mungusTwo->getEnemyHealth();
                 // Reduce the health of the second entity
-                testTwo->reduceHealth();
+                mungusTwo->reduceHealth();
 
                 // Check if the entity is dead and handle it
-                if (!testTwo->alive) {
-                    delete testTwo;
-                    testTwo = nullptr;
+                if (!mungusTwo->alive) {
+                    delete mungusTwo;
+                    mungusTwo = nullptr;
                 }
             }
         }
 
+        // Check if the click hit the third entity
+        if (skeletonEnemy) {
+            skeletonEnemy->checkHitbox(normalizedX, normalizedY);
+            if (skeletonEnemy->isEnemyHit()) {
+                hitAnyEntity = true;
+                qDebug() << "Hit third enemy" ;
+                // Reduce the health of the second entity
+                skeletonEnemy->reduceHealth();
+
+                // Check if the entity is dead and handle it
+                if (!skeletonEnemy->alive) {
+                    delete skeletonEnemy;
+                    skeletonEnemy = nullptr;
+                }
+            }
+        }
         // Handle click not hitting any entities
         if (!hitAnyEntity) {
             qDebug() << "No entity was hit.";

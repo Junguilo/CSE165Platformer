@@ -33,17 +33,12 @@ EnemyMongus::EnemyMongus(float positionX, float positionY){
     scaleTimer = new QTimer();
     connect(scaleTimer, &QTimer::timeout, this, &EnemyMongus::incrementScale);
     scaleTimer->start(200);
-
-
-    //movement regardless of scale, show esteban later
-    //centerTimer = new QTimer();
-    //connect(centerTimer, &QTimer::timeout, this, &EnemyMongus::setCenter);
-    //centerTimer->start(200);
 }
 
 EnemyMongus::~EnemyMongus(){
     //when a mongus dies, add points to the qtText
-
+    scaleTimer->stop();
+    animationTimer->stop();
     qDebug() << "mugus Deleted";
 }
 
@@ -119,8 +114,8 @@ void EnemyMongus::setCenter(){
     float y = getPositionY();
     //as the enemy scales up to be bigger in the screen, move character little by little to center
     //we do this because the character positioning is weird
-    qDebug() << "Position X: " << x;
-    qDebug() << "Position Y: "<< y;
+    //qDebug() << "Position X: " << x;
+    //qDebug() << "Position Y: "<< y;
 
     if(x > 0.1f){
         x = x - 0.03f;
