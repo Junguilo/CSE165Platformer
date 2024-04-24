@@ -41,7 +41,25 @@ private:
     SkeletonEnemy *skeletonEnemy;
     SkeletonKnife *skeletonKnife;
     void mapDraw();
+    //drawing health bar & reload sprites
+    QImage healthBar1;
+    QImage healthBar2;
+    QImage healthBar3;
+    QImage healthBar4;
+    QImage healthBar5;
+    QImage healthBar6;
 
+    QImage reload1;
+    QImage reload2;
+    QImage reload3;
+    QImage reload4;
+    QImage reload5;
+    QImage reload6;
+    QImage reload7;
+
+    QImage reloadBullets1;
+    QImage reloadBullets2;
+    QImage reloadBullets3;
 
     //another method for time used in another example
     int elapsed;

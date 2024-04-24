@@ -5,13 +5,32 @@ GLWidget::GLWidget() {
     elapsed = 0;
     setFixedSize(800,800);
 
+    //Initializing Health bar & Reload Sprites
+    healthBar1.load(":/Images/UISprites/HealthBar/CSE165HealthBar1.png");
+    healthBar2.load(":/Images/UISprites/HealthBar/CSE165HealthBar2.png");
+    healthBar3.load(":/Images/UISprites/HealthBar/CSE165HealthBar3.png");
+    healthBar4.load(":/Images/UISprites/HealthBar/CSE165HealthBar4.png");
+    healthBar5.load(":/Images/UISprites/HealthBar/CSE165HealthBar5.png");
+    healthBar6.load(":/Images/UISprites/HealthBar/CSE165HealthBar6.png");
+
+    reload1.load(":/Images/UISprites/Reload/Reloading1.png");
+    reload2.load(":/Images/UISprites/Reload/Reloading2.png");
+    reload3.load(":/Images/UISprites/Reload/Reloading3.png");
+    reload4.load(":/Images/UISprites/Reload/Reloading4.png");
+    reload5.load(":/Images/UISprites/Reload/Reloading5.png");
+    reload6.load(":/Images/UISprites/Reload/Reloading6.png");
+    reload7.load(":/Images/UISprites/Reload/Reloading7.png");
+
+    reloadBullets1.load(":/Images/UISprites/Reload/ReloadingBullets1.png");
+    reloadBullets2.load(":/Images/UISprites/Reload/ReloadingBullets2.png");
+    reloadBullets3.load(":/Images/UISprites/Reload/ReloadingBullets3.png");
+
     // sound effects
     mediaPlayer = new QMediaPlayer(this);
     audioOutput = new QAudioOutput(this);
     mediaPlayer->setAudioOutput(audioOutput);
     mediaPlayer->setSource(QUrl("qrc:/sounds/shooting.mp3"));
     audioOutput->setVolume(0.5);
-
 
     //  audio output and media player for the background song
     QAudioOutput *backgroundAudioOutput = new QAudioOutput(this);
@@ -89,6 +108,33 @@ void GLWidget::paintGL(){
             skeletonKnife->updateSkeleThrow(*skeletonEnemy);
         }
     }
+
+    //Need to draw down here for GUI
+    //Health Bar
+    QPainter healthBar(this);
+    //position, scale
+    QRectF healthTarget = QRectF(0,0,200,80);
+    //we can change the current image depending on health here
+    QImage currentHealthImage;
+    //Put the if statement here
+    currentHealthImage = healthBar1;
+    //
+    QImage healthImage(currentHealthImage);
+    healthBar.drawImage(healthTarget, healthImage);
+
+
+    //Reload Sprite
+    QPainter reloadSprite(this);
+    QRectF reloadTarget = QRectF(650,650,160,160);
+    QImage currentReloadImage;
+    //if statement for reload here
+    currentReloadImage = reload1;
+    //
+    QImage reloadImage(currentReloadImage);
+    reloadSprite.drawImage(reloadTarget, reloadImage);
+
+
+
     //needed in order to draw every frame
     update();
 }

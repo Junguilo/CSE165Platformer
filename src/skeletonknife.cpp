@@ -57,7 +57,7 @@ void SkeletonKnife::incrementScale(){
     qDebug() << "Y Value" << y;
     qDebug() << "--------";
     //stops the scale if we reach a certain point, will hit the player here
-    if(x < -64.0f && y < -134.0f){
+    if(x < 25.0f && y < -40.0f){
         //hit player here
         //we dont stop the timers because we'll reuse this knife
         //sets the skeletonEnemy's knife draw to be false, then hide the knife and reset position/scale
