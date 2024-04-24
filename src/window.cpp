@@ -20,10 +20,10 @@ void Window::setupGLWidget(){
     glWidget->setFocusPolicy(Qt::StrongFocus);
 
     //setup our text
-    QLabel *healthText = new QLabel(tr("Health:[----------]"));
+    QLabel *healthText = new QLabel(tr("Health"));
     healthText->setAlignment(Qt::AlignHCenter);
 
-    QLabel *ammoText = new QLabel(tr("Ammo:[----------]"));
+    QLabel *ammoText = new QLabel(tr("Ammo"));
     ammoText->setAlignment(Qt::AlignHCenter);
 
     QLabel *pointText = new QLabel(tr("Points: 0"));
