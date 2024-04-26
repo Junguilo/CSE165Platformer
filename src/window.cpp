@@ -31,6 +31,8 @@ void Window::setupGLWidget(){
 
     QPushButton *reloadButton = new QPushButton("Reload", this);
     QPushButton *healButton = new QPushButton("Heal(0)", this);
+    // Connect the clicked signal of the reloadButton to the reload() function
+    connect(reloadButton, &QPushButton::clicked, glWidget, &GLWidget::reload);
 
     //We don't use QMainWindow because that already sets up our layout for us
     //we want to use QGridLayout with QWidget as our window

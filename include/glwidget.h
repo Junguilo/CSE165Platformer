@@ -21,6 +21,10 @@ class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 public:
     GLWidget();
     ~GLWidget() override;
+
+public slots:
+    void reload();
+
 private:
     //Standard OpenGLWidget Functions
     void initializeGL() override;
@@ -41,7 +45,7 @@ private:
 
     QTimer *reloadTimer;
     bool isReloading = false;
-    void reload() ;
+    //void reload() ;
 
     //Other QT functions to handle input
     //void keyPressEvent(QKeyEvent *event) override;
