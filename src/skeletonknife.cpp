@@ -34,7 +34,7 @@ void SkeletonKnife::incrementFrame(){
 
 void SkeletonKnife::incrementScale(){
     // Define your scaling factor here
-    qreal scaleFactor = 1.1; // for example, scales the rect by 10% each time
+    qreal scaleFactor = 1.15; // for example, scales the rect by 10% each time
 
     // Get the current position and size of the QRectF
     qreal x = target.x();
@@ -53,9 +53,9 @@ void SkeletonKnife::incrementScale(){
     // Adjust the position to keep the center fixed
     x = centerX - newWidth / 2;
     y = centerY - newHeight / 2;
-    qDebug() << "X Value" << x;
-    qDebug() << "Y Value" << y;
-    qDebug() << "--------";
+    //qDebug() << "X Value" << x;
+    //qDebug() << "Y Value" << y;
+    //qDebug() << "--------";
     //stops the scale if we reach a certain point, will hit the player here
     if(x < 25.0f && y < -40.0f){
         //hit player here

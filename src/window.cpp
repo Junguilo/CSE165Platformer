@@ -8,7 +8,7 @@ Window::Window(){
     //now we can setup multiple other QTWidgets here
     setWindowTitle(tr("Shooter"));
 
-    //GL Setup with buttons on bottom
+    //GL Setup with buttons on bottom, will be easy to put the start game here
     setupGLWidget();
 }
 

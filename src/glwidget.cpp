@@ -137,7 +137,34 @@ void GLWidget::paintGL(){
     QRectF reloadTarget = QRectF(650,650,160,160);
     QImage currentReloadImage;
     //if statement for reload here
-    currentReloadImage = reload1;
+    switch(bulletsLeft){
+    case 6:
+        currentReloadImage = reload1;
+        break;
+    case 5:
+        currentReloadImage = reload2;
+        break;
+    case 4:
+        currentReloadImage = reload3;
+        break;
+    case 3:
+        currentReloadImage = reload4;
+        break;
+    case 2:
+        currentReloadImage = reload5;
+        break;
+    case 1:
+        currentReloadImage = reload6;
+        break;
+    case 0:
+        currentReloadImage = reload7;
+        break;
+    default:
+        currentReloadImage = reload1;
+    }
+    if(isReloading){
+        currentReloadImage = reloadBullets2;
+    }
     //
     QImage reloadImage(currentReloadImage);
     reloadSprite.drawImage(reloadTarget, reloadImage);
@@ -151,7 +178,6 @@ void GLWidget::paintGL(){
 void GLWidget::reloadBullets() {
     // Replenish the bullet count
     bulletsLeft = maxBullets;
-
 
     qDebug() << "Bullets reloaded!";
 }
@@ -272,8 +298,12 @@ void GLWidget::reload() {
     mediaPlayer->setSource(QUrl("qrc:/sounds/reloading.mp3"));
     mediaPlayer->play();
 
+
+    //added isReloading for 1 frame animation
+    isReloading = true;
     // Start the timer for 5 seconds
     reloadTimer->start(4350); //can decrease this timer to reload faster <-----------------------eguinos here imp emoji
+
 }
 
 void GLWidget::onReloadTimeout() {
@@ -281,6 +311,7 @@ void GLWidget::onReloadTimeout() {
     bulletsLeft = maxBullets;
     qDebug() << "Bullets reloaded after 5-second delay!";
 
+    isReloading = false;
     // Stop the timer
     reloadTimer->stop();
 }

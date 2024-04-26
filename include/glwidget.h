@@ -40,7 +40,7 @@ private:
     void onReloadTimeout();
 
     QTimer *reloadTimer;
-
+    bool isReloading = false;
     void reload() ;
 
     //Other QT functions to handle input
