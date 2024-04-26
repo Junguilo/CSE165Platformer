@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-f81d77d545bcd6bebc0b.json",
+					"jsonFile" : "directory-.-Debug-33d044fcd1e0bfc93ece.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "CSE165Platformer::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-CSE165Platformer-Debug-281f09335ea0942235ad.json",
+					"jsonFile" : "target-CSE165Platformer-Debug-4611806bf9b9f8f02fb1.json",
 					"name" : "CSE165Platformer",
 					"projectIndex" : 0
 				},

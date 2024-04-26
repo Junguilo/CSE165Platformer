@@ -13,6 +13,10 @@ CSE165Platformer_autogen/timestamp: \
 	/home/esteban/Documents/GitHub/CSE165Platformer/src/entity.h \
 	/home/esteban/Documents/GitHub/CSE165Platformer/src/glwidget.cpp \
 	/home/esteban/Documents/GitHub/CSE165Platformer/src/main.cpp \
+	/home/esteban/Documents/GitHub/CSE165Platformer/src/skeletonenemy.cpp \
+	/home/esteban/Documents/GitHub/CSE165Platformer/src/skeletonenemy.h \
+	/home/esteban/Documents/GitHub/CSE165Platformer/src/skeletonknife.cpp \
+	/home/esteban/Documents/GitHub/CSE165Platformer/src/skeletonknife.h \
 	/home/esteban/Documents/GitHub/CSE165Platformer/src/window.cpp \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/QDebug \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/QObject \
@@ -137,7 +141,9 @@ CSE165Platformer_autogen/timestamp: \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qversiontagging.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qxptype_traits.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qyieldcpu.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/QImage \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/QOpenGLFunctions \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/QPainter \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/QSurfaceFormat \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qaction.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qbitmap.h \
@@ -156,7 +162,9 @@ CSE165Platformer_autogen/timestamp: \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qopenglext.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qopenglfunctions.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpaintdevice.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpainter.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpalette.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpen.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpixelformat.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpixmap.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpolygon.h \
@@ -164,6 +172,7 @@ CSE165Platformer_autogen/timestamp: \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qrgb.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qrgba64.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qsurfaceformat.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtextoption.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtgui-config.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtguiexports.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtguiglobal.h \

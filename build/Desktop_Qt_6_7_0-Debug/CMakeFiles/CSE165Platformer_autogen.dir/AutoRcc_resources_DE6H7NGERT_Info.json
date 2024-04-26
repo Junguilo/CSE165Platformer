@@ -44,7 +44,10 @@
 		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/Images/UISprites/Reload/Reloading1.png",
 		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/Images/UISprites/Reload/Reloading5.png",
 		"/home/esteban/Documents/GitHub/CSE165Platformer/sounds/shooting.mp3",
-		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/sounds/theme.mp3"
+		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/sounds/reload_rev.mp3",
+		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/sounds/reloading.mp3",
+		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/sounds/theme.mp3",
+		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/sounds/cocking.mp3"
 	],
 	"LOCK_FILE" : "/home/esteban/Documents/GitHub/CSE165Platformer/build/Desktop_Qt_6_7_0-Debug/CMakeFiles/CSE165Platformer_autogen.dir/AutoRcc_resources_DE6H7NGERT_Lock.lock",
 	"MULTI_CONFIG" : false,

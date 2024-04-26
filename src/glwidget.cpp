@@ -29,7 +29,6 @@ GLWidget::GLWidget() {
     mediaPlayer = new QMediaPlayer(this);
     audioOutput = new QAudioOutput(this);
     mediaPlayer->setAudioOutput(audioOutput);
-    mediaPlayer->setSource(QUrl("qrc:/sounds/shooting.mp3"));
     audioOutput->setVolume(0.5);
 
     //  audio output and media player for the background song
@@ -49,6 +48,16 @@ GLWidget::GLWidget() {
 
     // play theme
     backgroundPlayer->play();
+
+
+    // Initialize bullet count
+    bulletsLeft = maxBullets;
+
+
+    // Initialize the reload timer
+    reloadTimer = new QTimer(this);
+    connect(reloadTimer, &QTimer::timeout, this, &GLWidget::onReloadTimeout);
+
 
 }
 
@@ -139,16 +148,33 @@ void GLWidget::paintGL(){
     update();
 }
 
-//MOUSE EVENT HERE
+void GLWidget::reloadBullets() {
+    // Replenish the bullet count
+    bulletsLeft = maxBullets;
+
+
+    qDebug() << "Bullets reloaded!";
+}
+
 void GLWidget::mousePressEvent(QMouseEvent *event) {
     bool hitAnyEntity = false; // Flag to track if any entity was hit
 
     // Play sound when the left button is clicked
     if (event->button() == Qt::LeftButton) {
+        // Check if there are bullets left before allowing the player to shoot
+        if (bulletsLeft > 0) {
+            // Play shooting sound
+            mediaPlayer->setSource(QUrl("qrc:/sounds/shooting.mp3"));
+            mediaPlayer->stop();
+            mediaPlayer->play();
 
-         mediaPlayer->stop();
-         mediaPlayer->play();
-
+            // Decrease bullet count each time the player shoots
+            bulletsLeft--;
+        } else {
+            // Notify the player they need to reload
+            qDebug() << "Out of bullets! Reload needed.";
+            return; // Early return to avoid processing further when out of bullets
+        }
     }
 
     switch(event->button()) {
@@ -202,8 +228,8 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
             skeletonEnemy->checkHitbox(normalizedX, normalizedY);
             if (skeletonEnemy->isEnemyHit()) {
                 hitAnyEntity = true;
-                qDebug() << "Hit third enemy" ;
-                // Reduce the health of the second entity
+                qDebug() << "Hit third enemy";
+                // Reduce the health of the third entity
                 skeletonEnemy->reduceHealth();
 
                 // Check if the entity is dead and handle it
@@ -213,6 +239,7 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
                 }
             }
         }
+
         // Handle click not hitting any entities
         if (!hitAnyEntity) {
             qDebug() << "No entity was hit.";
@@ -230,6 +257,35 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
         break;
     }
 }
+
+
+void GLWidget::keyPressEvent(QKeyEvent *event) {
+    // Check if the 'R' key is pressed
+    if (event->key() == Qt::Key_R) {
+        // Call the reload function if 'R' key is pressed
+        reload();
+    }
+}
+
+void GLWidget::reload() {
+    // Play reloading sound
+    mediaPlayer->setSource(QUrl("qrc:/sounds/reloading.mp3"));
+    mediaPlayer->play();
+
+    // Start the timer for 5 seconds
+    reloadTimer->start(4350); //can decrease this timer to reload faster <-----------------------eguinos here imp emoji
+}
+
+void GLWidget::onReloadTimeout() {
+    // Replenish the bullet count
+    bulletsLeft = maxBullets;
+    qDebug() << "Bullets reloaded after 5-second delay!";
+
+    // Stop the timer
+    reloadTimer->stop();
+}
+
+
 
 
 

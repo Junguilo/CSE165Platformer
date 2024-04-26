@@ -522,6 +522,18 @@
 			"MU",
 			"UVLADIE3JM/moc_entity.cpp",
 			null
+		],
+		[
+			"/home/esteban/Documents/GitHub/CSE165Platformer/src/skeletonenemy.h",
+			"MU",
+			"UVLADIE3JM/moc_skeletonenemy.cpp",
+			null
+		],
+		[
+			"/home/esteban/Documents/GitHub/CSE165Platformer/src/skeletonknife.h",
+			"MU",
+			"UVLADIE3JM/moc_skeletonknife.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -615,6 +627,16 @@
 		],
 		[
 			"/home/esteban/Documents/GitHub/CSE165Platformer/src/main.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/esteban/Documents/GitHub/CSE165Platformer/src/skeletonenemy.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/esteban/Documents/GitHub/CSE165Platformer/src/skeletonknife.cpp",
 			"MU",
 			null
 		],

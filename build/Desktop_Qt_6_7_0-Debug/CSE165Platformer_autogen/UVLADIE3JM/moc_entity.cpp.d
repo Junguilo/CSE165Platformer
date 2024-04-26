@@ -36,6 +36,7 @@
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qdarwinhelpers.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qdatastream.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qdebug.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qendian.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qexceptionhandling.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qflags.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qfloat16.h \
@@ -51,10 +52,12 @@
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qiterable.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qiterator.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qlatin1stringview.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qline.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qlist.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qlogging.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qmalloc.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qmap.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qmargins.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qmath.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qmetacontainer.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qmetatype.h \
@@ -68,7 +71,9 @@
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qoverload.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qpair.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qpoint.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qprocessordetection.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qrect.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qrefcount.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qscopedpointer.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qscopeguard.h \
@@ -77,6 +82,7 @@
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qshareddata_impl.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qsharedpointer.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qsize.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qstring.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qstringalgorithms.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qstringbuilder.h \
@@ -117,17 +123,36 @@
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qversiontagging.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qxptype_traits.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qyieldcpu.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/QImage \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/QOpenGLFunctions \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/QPainter \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/QSurfaceFormat \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qbrush.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qcolor.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qfont.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qfontinfo.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qfontmetrics.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qimage.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qopengl.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qopenglcontext.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qopenglcontext_platform.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qopenglext.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qopenglfunctions.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpaintdevice.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpainter.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpen.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpixelformat.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpixmap.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpolygon.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qregion.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qrgb.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qrgba64.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qsurfaceformat.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtextoption.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtgui-config.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtguiexports.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtguiglobal.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtransform.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qwindowdefs.h \
   /usr/include/GL/gl.h \
   /usr/include/alloca.h \

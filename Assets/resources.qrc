@@ -38,5 +38,8 @@
         <file>Images/HealthPotion/Health.png</file>
         <file>../sounds/shooting.mp3</file>
         <file>sounds/theme.mp3</file>
+        <file>sounds/cocking.mp3</file>
+        <file>sounds/reload_rev.mp3</file>
+        <file>sounds/reloading.mp3</file>
     </qresource>
 </RCC>

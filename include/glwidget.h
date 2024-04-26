@@ -9,6 +9,7 @@
 #include <QMediaPlayer>
 #include <QAudioOutput>
 #include <QUrl>
+#include <QTimer>
 
 //move this to its own enemy Spawner class
 #include "enemymongus.h"
@@ -28,6 +29,19 @@ private:
     QMediaPlayer *mediaPlayer;
     QAudioOutput *audioOutput;
     QMediaPlayer *backgroundPlayer;
+    void keyPressEvent(QKeyEvent *event) override;
+
+    // Bullet count and maximum capacity
+    int bulletsLeft;
+    const int maxBullets = 6;
+
+    // Reload bullets
+    void reloadBullets();
+    void onReloadTimeout();
+
+    QTimer *reloadTimer;
+
+    void reload() ;
 
     //Other QT functions to handle input
     //void keyPressEvent(QKeyEvent *event) override;

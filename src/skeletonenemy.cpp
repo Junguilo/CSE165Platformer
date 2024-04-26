@@ -3,7 +3,7 @@
 SkeletonEnemy::SkeletonEnemy() {}
 
 SkeletonEnemy::SkeletonEnemy(float positionX, float positionY){
-    setHealth(10);
+    setHealth(1);
     setAttack(0);
 
     setPosition(positionX, positionY);

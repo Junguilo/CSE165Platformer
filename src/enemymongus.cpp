@@ -6,7 +6,7 @@ EnemyMongus::EnemyMongus() {
 
 EnemyMongus::EnemyMongus(float positionX, float positionY){
     //the Health and Attack Vals of this enemy is hardcoded.
-    setHealth(3);
+    setHealth(1);
     setAttack(1);
 
     setPosition(positionX, positionY);

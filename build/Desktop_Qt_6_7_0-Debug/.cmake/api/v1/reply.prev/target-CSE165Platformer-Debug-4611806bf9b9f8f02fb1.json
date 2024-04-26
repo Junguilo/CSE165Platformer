@@ -71,13 +71,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 94,
+				"line" : 96,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 69,
+				"line" : 71,
 				"parent" : 0
 			},
 			{
@@ -328,7 +328,9 @@
 				4,
 				8,
 				10,
-				12
+				12,
+				14,
+				16
 			]
 		}
 	],
@@ -440,7 +442,9 @@
 				4,
 				8,
 				10,
-				12
+				12,
+				14,
+				16
 			]
 		},
 		{
@@ -450,7 +454,9 @@
 				3,
 				5,
 				7,
-				9
+				9,
+				11,
+				13
 			]
 		},
 		{
@@ -458,15 +464,15 @@
 			"sourceIndexes" : 
 			[
 				6,
-				11
+				15
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				13,
-				14
+				17,
+				18
 			]
 		}
 	],
@@ -532,6 +538,28 @@
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
 			"path" : "src/enemymongus.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "src/skeletonenemy.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "src/skeletonenemy.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "src/skeletonknife.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "src/skeletonknife.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
