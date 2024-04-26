@@ -317,7 +317,10 @@ void GLWidget::onReloadTimeout() {
 }
 
 
-
+//Heal
+void GLWidget::heal(){
+    qDebug() << "Healing";
+}
 
 
 

@@ -24,6 +24,7 @@ public:
 
 public slots:
     void reload();
+    void heal();
 
 private:
     //Standard OpenGLWidget Functions

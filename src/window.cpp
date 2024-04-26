@@ -26,13 +26,15 @@ void Window::setupGLWidget(){
     QLabel *ammoText = new QLabel(tr("Ammo"));
     ammoText->setAlignment(Qt::AlignHCenter);
 
+    //will have to add points to enemy death later
     QLabel *pointText = new QLabel(tr("Points: 0"));
     pointText -> setAlignment(Qt::AlignCenter);
 
-    QPushButton *reloadButton = new QPushButton("Reload", this);
-    QPushButton *healButton = new QPushButton("Heal(0)", this);
+    QPushButton *reloadButton = new QPushButton("---Reload---", this);
+    QPushButton *healButton = new QPushButton("---Heal---", this);
     // Connect the clicked signal of the reloadButton to the reload() function
     connect(reloadButton, &QPushButton::clicked, glWidget, &GLWidget::reload);
+    connect(healButton, &QPushButton::clicked, glWidget, &GLWidget::heal);
 
     //We don't use QMainWindow because that already sets up our layout for us
     //we want to use QGridLayout with QWidget as our window
