@@ -8,7 +8,7 @@ public:
     EnemyMongus();
     EnemyMongus(float positionX, float positionY);
     ~EnemyMongus();
-
+    int pointsGiven = 50;
     //maybe we need these for hitboxes??
     int getEnemyHealth() const;
     int getEnemyAttack() const;

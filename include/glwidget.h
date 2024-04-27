@@ -18,13 +18,25 @@
 
 class GLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 {
+    Q_OBJECT
 public:
     GLWidget();
     ~GLWidget() override;
 
+    int points = 0;
+    int health = 5;
+    int bulletsLeft;
+
+    bool isReloading = false;
+
 public slots:
     void reload();
     void heal();
+
+signals:
+    void pointsChanged(int newPoints);
+    void bulletsChanged(int newBullets);
+    void healthChanged(int newHealth);
 
 private:
     //Standard OpenGLWidget Functions
@@ -47,7 +59,6 @@ private:
 
 
     // Bullet count and maximum capacity
-    int bulletsLeft;
     const int maxBullets = 6;
 
     // Reload bullets
@@ -55,8 +66,12 @@ private:
     void onReloadTimeout();
 
     QTimer *reloadTimer;
-    bool isReloading = false;
-    //void reload() ;
+
+    //all Signal Functions needed for the QTtext
+    void updatePoints(int newPoints);
+    void updateBullets();
+    void updateHealth();
+
 
     //Other QT functions to handle input
     //void keyPressEvent(QKeyEvent *event) override;
@@ -89,13 +104,6 @@ private:
     QImage reloadBullets1;
     QImage reloadBullets2;
     QImage reloadBullets3;
-
-    //another method for time used in another example
-    int elapsed;
-
-    //calculating the currentTime - elapsedTime diff
-    float timeDelta;
-    std::chrono::time_point<std::chrono::steady_clock> lastFrameTime;
 };
 
 #endif // GLWIDGET_H

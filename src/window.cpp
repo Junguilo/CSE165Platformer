@@ -20,19 +20,24 @@ void Window::setupGLWidget(){
     glWidget->setFocusPolicy(Qt::StrongFocus);
 
     //setup our text
-    QLabel *healthText = new QLabel(tr("Health"));
+    healthText = new QLabel(tr("Health: 5"));
     healthText->setAlignment(Qt::AlignHCenter);
 
-    QLabel *ammoText = new QLabel(tr("Ammo"));
+    ammoText = new QLabel(tr("Ammo: 6"));
     ammoText->setAlignment(Qt::AlignHCenter);
 
-    //will have to add points to enemy death later
-    QLabel *pointText = new QLabel(tr("Points: 0"));
-    pointText -> setAlignment(Qt::AlignCenter);
+    pointText = new QLabel(tr("Points: 0"));
+    pointText->setAlignment(Qt::AlignCenter);
 
-    QPushButton *reloadButton = new QPushButton("---Reload---", this);
-    QPushButton *healButton = new QPushButton("---Heal---", this);
-    // Connect the clicked signal of the reloadButton to the reload() function
+
+    //This will update the Labels during gameplay
+    connect(glWidget, &GLWidget::pointsChanged, this, &Window::updatePointsLabel);
+    connect(glWidget, &GLWidget::bulletsChanged, this, &Window::updateAmmoLabel);
+    //connect(glWidget, &GLWidget::healthChanged, this, &Window::updateHealthLabel);
+
+    QPushButton *reloadButton = new QPushButton("Reload", this);
+    QPushButton *healButton = new QPushButton("Heal", this);
+    //connect the clicked signal of the reloadButton to the reload() function
     connect(reloadButton, &QPushButton::clicked, glWidget, &GLWidget::reload);
     connect(healButton, &QPushButton::clicked, glWidget, &GLWidget::heal);
 
@@ -49,4 +54,25 @@ void Window::setupGLWidget(){
     layout->addWidget(reloadButton, 2, 1);
     setLayout(layout);
 
+}
+
+
+void Window::updatePointsLabel(int newPoints){
+    QString pointsString = QString::number(newPoints);
+    pointText->setText(tr("Points: ") + pointsString);
+}
+
+void Window::updateAmmoLabel(int newAmmo){
+    if(!glWidget->isReloading){
+        QString ammoString = QString::number(newAmmo);
+        ammoText->setText(tr("Ammo: ") + ammoString);
+    } else {
+        ammoText->setText(tr("RELOADING"));
+    }
+}
+
+void Window::updateHealthLabel(int newHealth){
+    QString healthString = QString::number(newHealth);
+    //qDebug() << ammoString;
+    ammoText->setText(tr("Health: ") + healthString);
 }

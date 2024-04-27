@@ -10,6 +10,7 @@ public:
     SkeletonEnemy();
     SkeletonEnemy(float positionX, float positionY);
     ~SkeletonEnemy();
+    int pointsGiven = 100;
 
     //Animation Functions
     int frame = 0;

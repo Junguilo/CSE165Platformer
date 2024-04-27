@@ -2,7 +2,6 @@
 
 //sets the size of our openGLWindow
 GLWidget::GLWidget() {
-    elapsed = 0;
     setFixedSize(800,800);
 
     //Initializing Health bar & Reload Sprites
@@ -216,11 +215,12 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
     // Mouse press event logic
     bool hitAnyEntity = false;
 
-    if (event->button() == Qt::LeftButton && bulletsLeft > 0) {
+    if (event->button() == Qt::LeftButton && bulletsLeft > 0 && !isReloading) {
         // Shooting logic
         mediaPlayer->setSource(QUrl("qrc:/sounds/shooting.mp3"));
         mediaPlayer->play();
         bulletsLeft--;
+        updateBullets();
 
         // Process mouse clicks on entities
         float centerX = event->pos().x() - width() / 2.0f;
@@ -241,6 +241,8 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
                 mungusOne->reduceHealth();
                 qDebug() << "Hit mungusOne with health:" << mungusOne->getHealth();
                 if (!mungusOne->alive) {
+                    updatePoints(points + mungusOne->pointsGiven);
+
                     delete mungusOne;
                     mungusOne = nullptr;
                     mungusOneRespawnTimer->start(5000);
@@ -255,6 +257,8 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
                 mungusTwo->reduceHealth();
                 qDebug() << "Hit mungusTwo with health:" << mungusTwo->getHealth();
                 if (!mungusTwo->alive) {
+                    updatePoints(points + mungusTwo->pointsGiven);
+
                     delete mungusTwo;
                     mungusTwo = nullptr;
                     mungusTwoRespawnTimer->start(5000);
@@ -269,6 +273,8 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
                 skeletonEnemy->reduceHealth();
                 qDebug() << "Hit skeletonEnemy with health:" << skeletonEnemy->getHealth();
                 if (!skeletonEnemy->alive) {
+                    updatePoints(points + skeletonEnemy->pointsGiven);
+
                     delete skeletonEnemy;
                     skeletonEnemy = nullptr;
                     skeletonEnemyRespawnTimer->start(5000);
@@ -302,8 +308,9 @@ void GLWidget::reload() {
 
     //added isReloading for 1 frame animation
     isReloading = true;
-    // Start the timer for 5 seconds
-    reloadTimer->start(4350); //can decrease this timer to reload faster <-----------------------eguinos here imp emoji
+    updateBullets();
+    // Start the timer for 5 seconds //4350
+    reloadTimer->start(3000); //can decrease this timer to reload faster <-----------------------eguinos here imp emoji :pensive:
 
 }
 
@@ -313,10 +320,23 @@ void GLWidget::onReloadTimeout() {
     qDebug() << "Bullets reloaded after 5-second delay!";
 
     isReloading = false;
+    updateBullets();
     // Stop the timer
     reloadTimer->stop();
 }
 
+void GLWidget::updatePoints(int newPoints){
+    points = newPoints;
+    emit pointsChanged(points);
+}
+
+void GLWidget::updateBullets(){
+    emit bulletsChanged(bulletsLeft);
+}
+
+void GLWidget::updateHealth(){
+    emit healthChanged(health);
+}
 
 //Heal
 void GLWidget::heal(){
