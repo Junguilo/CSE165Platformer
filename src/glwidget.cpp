@@ -59,6 +59,18 @@ GLWidget::GLWidget() {
     connect(reloadTimer, &QTimer::timeout, this, &GLWidget::onReloadTimeout);
 
 
+    //respawn enemies
+    // Initialize respawn timers
+    mungusOneRespawnTimer = new QTimer(this);
+    mungusTwoRespawnTimer = new QTimer(this);
+    skeletonEnemyRespawnTimer = new QTimer(this);
+
+    // Connect the respawn timers to their respective methods
+    connect(mungusOneRespawnTimer, &QTimer::timeout, this, &GLWidget::respawnMungusOne);
+    connect(mungusTwoRespawnTimer, &QTimer::timeout, this, &GLWidget::respawnMungusTwo);
+    connect(skeletonEnemyRespawnTimer, &QTimer::timeout, this, &GLWidget::respawnSkeletonEnemy);
+
+
 }
 
 //not really needed, just so it destroys the opengl stuff when done
@@ -86,6 +98,24 @@ void GLWidget::initializeGL(){
 void GLWidget::resizeGL(int w, int h){
 
     glViewport(0,0,w,h);
+}
+//respawn enemies
+void GLWidget::respawnMungusOne() {
+    // Respawn mungusOne at its original spawn point and reset its health
+    mungusOne = new EnemyMongus(0.8f, -0.2f);
+    mungusOneRespawnTimer->stop(); // Stop the timer
+}
+
+void GLWidget::respawnMungusTwo() {
+    // Respawn mungusTwo at its original spawn point and reset its health
+    mungusTwo = new EnemyMongus(-0.8f, -0.2f);
+    mungusTwoRespawnTimer->stop(); // Stop the timer
+}
+
+void GLWidget::respawnSkeletonEnemy() {
+    // Respawn skeletonEnemy at its original spawn point and reset its health
+    skeletonEnemy = new SkeletonEnemy(300, 300);
+    skeletonEnemyRespawnTimer->stop(); // Stop the timer
 }
 
 void GLWidget::paintGL(){
@@ -203,7 +233,7 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
         }
     }
 
-    switch(event->button()) {
+    switch (event->button()) {
     case Qt::LeftButton: {
         // Translate position to center
         float centerX = event->pos().x() - width() / 2.0f;
@@ -228,6 +258,8 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
                 if (!mungusOne->alive) {
                     delete mungusOne;
                     mungusOne = nullptr;
+                    // Start respawn timer for mungusOne
+                    mungusOneRespawnTimer->start(5000); // 5 seconds delay
                 }
             }
         }
@@ -245,6 +277,8 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
                 if (!mungusTwo->alive) {
                     delete mungusTwo;
                     mungusTwo = nullptr;
+                    // Start respawn timer for mungusTwo
+                    mungusTwoRespawnTimer->start(5000); // 5 seconds delay
                 }
             }
         }
@@ -262,6 +296,8 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
                 if (!skeletonEnemy->alive) {
                     delete skeletonEnemy;
                     skeletonEnemy = nullptr;
+                    // Start respawn timer for skeletonEnemy
+                    skeletonEnemyRespawnTimer->start(5000); // 5 seconds delay
                 }
             }
         }
@@ -283,6 +319,7 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
         break;
     }
 }
+
 
 
 void GLWidget::keyPressEvent(QKeyEvent *event) {

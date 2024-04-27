@@ -36,6 +36,16 @@ private:
     QMediaPlayer *backgroundPlayer;
     void keyPressEvent(QKeyEvent *event) override;
 
+    //respawning enemies
+    QTimer *mungusOneRespawnTimer;
+    QTimer *mungusTwoRespawnTimer;
+    QTimer *skeletonEnemyRespawnTimer;
+
+    void respawnMungusOne();
+    void respawnMungusTwo();
+    void respawnSkeletonEnemy();
+
+
     // Bullet count and maximum capacity
     int bulletsLeft;
     const int maxBullets = 6;
