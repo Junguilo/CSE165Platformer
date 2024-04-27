@@ -12,6 +12,8 @@ public:
     //maybe we need these for hitboxes??
     int getEnemyHealth() const;
     int getEnemyAttack() const;
+    bool hitPlayer = false;
+    bool isCenter = false;
 
     //Animation Functions
     int frame = 0;
@@ -21,6 +23,7 @@ public:
     QTimer *animationTimer;
     QTimer *scaleTimer;
     QTimer *centerTimer;
+    QTimer *attackTimer;
 
     void updateHitbox();
 
@@ -30,6 +33,8 @@ public:
 public slots:
     void incrementFrame();
     void incrementScale();
+    void updateAttack();
+    void updateAttackTimeout();
 
 private:
     void setCenter();

@@ -21,7 +21,6 @@ public:
     float normalizedY;
     //All the QFrames
     bool isReloading = false;
-
     //check if we hit the knife throw frame
     //will spawn the knife at an interval
     bool isThrowing = false;

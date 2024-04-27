@@ -26,7 +26,11 @@ SkeletonKnife::SkeletonKnife(float positionX, float positionY){
     scaleTimer->start(200);
 }
 
-SkeletonKnife::~SkeletonKnife() {}
+SkeletonKnife::~SkeletonKnife() {
+    scaleTimer->stop();
+    animationTimer->stop();
+    qDebug() << "deletedKnife";
+}
 
 void SkeletonKnife::incrementFrame(){
     frame++;
@@ -54,7 +58,7 @@ void SkeletonKnife::incrementScale(){
     x = centerX - newWidth / 2;
     y = centerY - newHeight / 2;
     //qDebug() << "X Value" << x;
-    //qDebug() << "Y Value" << y;
+   // qDebug() << "Y Value" << y;
     //qDebug() << "--------";
     //stops the scale if we reach a certain point, will hit the player here
     if(x < 25.0f && y < -40.0f){
@@ -62,6 +66,7 @@ void SkeletonKnife::incrementScale(){
         //we dont stop the timers because we'll reuse this knife
         //sets the skeletonEnemy's knife draw to be false, then hide the knife and reset position/scale
         resetPosition = true;
+        hitPlayer = true;
     }
 
     // Update the QRectF with the new dimensions

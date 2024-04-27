@@ -33,7 +33,7 @@ void Window::setupGLWidget(){
     //This will update the Labels during gameplay
     connect(glWidget, &GLWidget::pointsChanged, this, &Window::updatePointsLabel);
     connect(glWidget, &GLWidget::bulletsChanged, this, &Window::updateAmmoLabel);
-    //connect(glWidget, &GLWidget::healthChanged, this, &Window::updateHealthLabel);
+    connect(glWidget, &GLWidget::healthChanged, this, &Window::updateHealthLabel);
 
     QPushButton *reloadButton = new QPushButton("Reload", this);
     QPushButton *healButton = new QPushButton("Heal", this);
@@ -73,6 +73,5 @@ void Window::updateAmmoLabel(int newAmmo){
 
 void Window::updateHealthLabel(int newHealth){
     QString healthString = QString::number(newHealth);
-    //qDebug() << ammoString;
-    ammoText->setText(tr("Health: ") + healthString);
+    healthText->setText(tr("Health: ") + healthString);
 }

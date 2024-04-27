@@ -114,6 +114,7 @@ void GLWidget::respawnMungusTwo() {
 void GLWidget::respawnSkeletonEnemy() {
     // Respawn skeletonEnemy at its original spawn point and reset its health
     skeletonEnemy = new SkeletonEnemy(300, 300);
+    skeletonKnife = new SkeletonKnife(420, 350);
     skeletonEnemyRespawnTimer->stop(); // Stop the timer
 }
 
@@ -145,7 +146,44 @@ void GLWidget::paintGL(){
             skeletonKnife->draw(this);
             skeletonKnife->updateSkeleThrow(*skeletonEnemy);
         }
+    } else {
+        //if the skeleEnemy is dead stop the knives!!
+        skeletonKnife->animationTimer->stop();
+        skeletonKnife->scaleTimer->stop();
     }
+
+
+    //check if enemies hit the player
+    if(skeletonEnemy && skeletonKnife->hitPlayer){
+        health -= skeletonKnife->attack;
+        skeletonKnife->hitPlayer = false;
+        updateHealth();
+    }
+
+    if(mungusOne && mungusOne->alive && mungusOne->hitPlayer){
+        health -= mungusOne->attack;
+        mungusOne->hitPlayer = false;
+        updateHealth();
+    }
+
+    if(mungusTwo && mungusTwo->alive && mungusTwo->hitPlayer){
+        health -= mungusTwo->attack;
+        mungusTwo->hitPlayer = false;
+        updateHealth();
+    }
+
+    //this does not stop despite health would be -1
+    if(mungusOne && mungusOne->alive && mungusOne->isCenter){
+        mungusOne->updateAttack();
+        mungusOne->isCenter = false;
+    }
+
+    if(mungusTwo && mungusTwo->alive && mungusTwo->isCenter){
+        mungusTwo->updateAttack();
+        mungusTwo->isCenter = false;
+    }
+
+
 
     //Need to draw down here for GUI
     //Health Bar
@@ -155,7 +193,25 @@ void GLWidget::paintGL(){
     //we can change the current image depending on health here
     QImage currentHealthImage;
     //Put the if statement here
-    currentHealthImage = healthBar1;
+    switch(health){
+    case 5:
+        currentHealthImage = healthBar1;
+        break;
+    case 4:
+        currentHealthImage = healthBar2;
+        break;
+    case 3:
+        currentHealthImage = healthBar3;
+        break;
+    case 2:
+        currentHealthImage = healthBar4;
+        break;
+    case 1:
+        currentHealthImage = healthBar5;
+        break;
+    default:
+        currentHealthImage = healthBar6;
+    }
     //
     QImage healthImage(currentHealthImage);
     healthBar.drawImage(healthTarget, healthImage);
@@ -273,8 +329,9 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
                 skeletonEnemy->reduceHealth();
                 qDebug() << "Hit skeletonEnemy with health:" << skeletonEnemy->getHealth();
                 if (!skeletonEnemy->alive) {
+                    //gives the user points on enemy death
                     updatePoints(points + skeletonEnemy->pointsGiven);
-
+                    //delete skeletonKnife;
                     delete skeletonEnemy;
                     skeletonEnemy = nullptr;
                     skeletonEnemyRespawnTimer->start(5000);
@@ -340,6 +397,8 @@ void GLWidget::updateHealth(){
 
 //Heal
 void GLWidget::heal(){
+    health = 5;
+    updateHealth();
     qDebug() << "Healing";
 }
 

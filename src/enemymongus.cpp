@@ -33,6 +33,10 @@ EnemyMongus::EnemyMongus(float positionX, float positionY){
     scaleTimer = new QTimer();
     connect(scaleTimer, &QTimer::timeout, this, &EnemyMongus::incrementScale);
     scaleTimer->start(200);
+
+    //attackTimer, every 0.5 secs if the mugus is in the center it will reattack
+    attackTimer = new QTimer();
+    connect(attackTimer, &QTimer::timeout, this, &EnemyMongus::updateAttackTimeout);
 }
 
 EnemyMongus::~EnemyMongus(){
@@ -92,6 +96,17 @@ void EnemyMongus::updateHitbox(){
 
 
 //For SLOT Timer Functions
+//will hit the player every 1.5 seconds if we're in the center
+void EnemyMongus::updateAttack(){
+    attackTimer->start(1500);
+}
+
+void EnemyMongus::updateAttackTimeout(){
+    //qDebug() << "does this work";
+    hitPlayer = true;
+}
+
+
 void EnemyMongus::incrementFrame(){
     frame++;
 }
@@ -103,6 +118,8 @@ void EnemyMongus::incrementScale(){
     //add it here because the scale messes up our position
     setCenter();
     if(scale >= 4.0f){
+        hitPlayer = true;
+        isCenter = true;
         scaleTimer->stop();
         animationTimer->stop();
         frame = 0;

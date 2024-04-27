@@ -31,6 +31,8 @@ public:
     void updateSkeleThrow(SkeletonEnemy &a);
     bool resetPosition = false;
 
+    bool hitPlayer = false;
+
 public slots:
     void incrementFrame();
     void incrementScale();
