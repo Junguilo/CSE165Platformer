@@ -213,114 +213,78 @@ void GLWidget::reloadBullets() {
 }
 
 void GLWidget::mousePressEvent(QMouseEvent *event) {
-    bool hitAnyEntity = false; // Flag to track if any entity was hit
+    // Mouse press event logic
+    bool hitAnyEntity = false;
 
-    // Play sound when the left button is clicked
-    if (event->button() == Qt::LeftButton) {
-        // Check if there are bullets left before allowing the player to shoot
-        if (bulletsLeft > 0) {
-            // Play shooting sound
-            mediaPlayer->setSource(QUrl("qrc:/sounds/shooting.mp3"));
-            mediaPlayer->stop();
-            mediaPlayer->play();
+    if (event->button() == Qt::LeftButton && bulletsLeft > 0) {
+        // Shooting logic
+        mediaPlayer->setSource(QUrl("qrc:/sounds/shooting.mp3"));
+        mediaPlayer->play();
+        bulletsLeft--;
 
-            // Decrease bullet count each time the player shoots
-            bulletsLeft--;
-        } else {
-            // Notify the player they need to reload
-            qDebug() << "Out of bullets! Reload needed.";
-            return; // Early return to avoid processing further when out of bullets
-        }
-    }
-
-    switch (event->button()) {
-    case Qt::LeftButton: {
-        // Translate position to center
+        // Process mouse clicks on entities
         float centerX = event->pos().x() - width() / 2.0f;
         float centerY = height() / 2.0f - event->pos().y();
-
-        // Scale to range -1 to 1
         float normalizedX = (2.0f * centerX) / width();
         float normalizedY = (2.0f * centerY) / height();
 
         qDebug() << "Position:" << normalizedX << "," << normalizedY;
 
-        // Check if the click hit the first entity
-        if (mungusOne) {
-            mungusOne->checkHitbox(normalizedX, normalizedY);
-            if (mungusOne->isEnemyHit()) {
-                hitAnyEntity = true;
-                qDebug() << "Hit first entity with health:" << mungusOne->getEnemyHealth();
-                // Reduce the health of the first entity
-                mungusOne->reduceHealth();
+        // Reset hitAnyEntity to false at the beginning of each check
+        hitAnyEntity = false;
 
-                // Check if the entity is dead and handle it
+        // Check hitboxes of each entity
+        // Each check is separate and independent
+        if (mungusOne && mungusOne->alive) {
+            mungusOne->checkHitbox(normalizedX, normalizedY);
+            if (mungusOne->getHit()) {
+                mungusOne->reduceHealth();
+                qDebug() << "Hit mungusOne with health:" << mungusOne->getHealth();
                 if (!mungusOne->alive) {
                     delete mungusOne;
                     mungusOne = nullptr;
-                    // Start respawn timer for mungusOne
-                    mungusOneRespawnTimer->start(5000); // 5 seconds delay
+                    mungusOneRespawnTimer->start(5000);
                 }
+                hitAnyEntity = true;
             }
         }
 
-        // Check if the click hit the second entity
-        if (mungusTwo) {
+        if (mungusTwo && mungusTwo->alive) {
             mungusTwo->checkHitbox(normalizedX, normalizedY);
-            if (mungusTwo->isEnemyHit()) {
-                hitAnyEntity = true;
-                qDebug() << "Hit second entity with health:" << mungusTwo->getEnemyHealth();
-                // Reduce the health of the second entity
+            if (mungusTwo->getHit()) {
                 mungusTwo->reduceHealth();
-
-                // Check if the entity is dead and handle it
+                qDebug() << "Hit mungusTwo with health:" << mungusTwo->getHealth();
                 if (!mungusTwo->alive) {
                     delete mungusTwo;
                     mungusTwo = nullptr;
-                    // Start respawn timer for mungusTwo
-                    mungusTwoRespawnTimer->start(5000); // 5 seconds delay
+                    mungusTwoRespawnTimer->start(5000);
                 }
+                hitAnyEntity = true;
             }
         }
 
-        // Check if the click hit the third entity
-        if (skeletonEnemy) {
+        if (skeletonEnemy && skeletonEnemy->alive) {
             skeletonEnemy->checkHitbox(normalizedX, normalizedY);
-            if (skeletonEnemy->isEnemyHit()) {
-                hitAnyEntity = true;
-                qDebug() << "Hit third enemy";
-                // Reduce the health of the third entity
+            if (skeletonEnemy->getHit()) {
                 skeletonEnemy->reduceHealth();
-
-                // Check if the entity is dead and handle it
+                qDebug() << "Hit skeletonEnemy with health:" << skeletonEnemy->getHealth();
                 if (!skeletonEnemy->alive) {
                     delete skeletonEnemy;
                     skeletonEnemy = nullptr;
-                    // Start respawn timer for skeletonEnemy
-                    skeletonEnemyRespawnTimer->start(5000); // 5 seconds delay
+                    skeletonEnemyRespawnTimer->start(5000);
                 }
+                hitAnyEntity = true;
             }
         }
 
-        // Handle click not hitting any entities
+        // Check if no entity was hit
         if (!hitAnyEntity) {
             qDebug() << "No entity was hit.";
-            // Optionally, you can perform some action here, e.g., moving the player character
         }
-
-        break;
-    }
-    case Qt::RightButton: {
-        qDebug() << "Right button clicked.";
-        break;
-    }
-    default:
-        qDebug() << "Unhandled mouse button event.";
-        break;
+    } else {
+        qDebug() << "Out of bullets! Reload needed.";
     }
 }
-
-
 
 void GLWidget::keyPressEvent(QKeyEvent *event) {
     // Check if the 'R' key is pressed

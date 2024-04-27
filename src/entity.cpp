@@ -5,40 +5,37 @@ Entity::Entity() {
     alive = true;
 }
 
-
-Entity::~Entity(){
+Entity::~Entity() {
     qDebug() << "Entity Deleted";
-
 }
 
-//this function will be used in mouseClick Event,
-void Entity::checkHitbox(float x, float y){
-    //remember
-    //hitboxOne, (x, y) -> hitboxTwo (x, y) is the top Check; Y (posY < Y)
-    //hitboxTwo -> hitboxThree is the right check; X (posX < X)
-    //hitboxThree -> hitboxFour is the bottom check; Y (posY > Y)
-    //hitboxFour -> hitboxOne is the left check; X (posX > Y)
-    if(y < hitboxOneY && y > hitboxFourY && x > hitboxOneX && x < hitboxTwoX){
+// Hitbox check function
+void Entity::checkHitbox(float x, float y) {
+    // Check if (x, y) is within the entity's hitbox
+    if (y < hitboxOneY && y > hitboxFourY && x > hitboxOneX && x < hitboxTwoX) {
         qDebug() << "Hit!";
         setHit(true);
+    } else {
+        // If the coordinates do not match the hitbox, mark isHit as false
+        setHit(false);
     }
 }
 
-//setters
-void Entity::setHealth(int health){
+// Setters
+void Entity::setHealth(int health) {
     this->health = health;
 }
 
-void Entity::setAttack(int attack){
+void Entity::setAttack(int attack) {
     this->attack = attack;
 }
 
-void Entity::setPosition(float positionX, float positionY){
+void Entity::setPosition(float positionX, float positionY) {
     this->positionX = positionX;
     this->positionY = positionY;
 }
 
-void Entity::setHitbox(float hitboxOneX, float hitboxOneY, float hitboxTwoX, float hitboxTwoY, float hitboxThreeX, float hitboxThreeY, float hitboxFourX, float hitboxFourY){
+void Entity::setHitbox(float hitboxOneX, float hitboxOneY, float hitboxTwoX, float hitboxTwoY, float hitboxThreeX, float hitboxThreeY, float hitboxFourX, float hitboxFourY) {
     this->hitboxOneX = hitboxOneX;
     this->hitboxOneY = hitboxOneY;
     this->hitboxTwoX = hitboxTwoX;
@@ -49,37 +46,41 @@ void Entity::setHitbox(float hitboxOneX, float hitboxOneY, float hitboxTwoX, flo
     this->hitboxFourY = hitboxFourY;
 }
 
+// Reducing health
 void Entity::reduceHealth() {
     if (health > 0) {
         health--;
     }
+    // Check if the entity is dead
     if (health <= 0) {
         alive = false;
+        setHit(false); // Set isHit to false when entity dies
     }
 }
 
-void Entity::setHit(bool isHit){
+// Set hit state
+void Entity::setHit(bool isHit) {
     this->isHit = isHit;
 }
 
-//Getters
-int Entity::getHealth() const{
+// Getters
+int Entity::getHealth() const {
     return health;
 }
 
-int Entity::getAttack() const{
+int Entity::getAttack() const {
     return attack;
 }
 
-float Entity::getPositionX() const{
+float Entity::getPositionX() const {
     return positionX;
 }
 
-float Entity::getPositionY() const{
+float Entity::getPositionY() const {
     return positionY;
 }
 
-bool Entity::getHit() const{
+bool Entity::getHit() const {
     return isHit;
 }
 
