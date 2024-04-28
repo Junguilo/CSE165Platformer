@@ -7,6 +7,8 @@
 	"INCLUDE_DIR" : "/home/esteban/Documents/GitHub/CSE165Platformer/build/Desktop_Qt_6_2_12_GCC_64bit-Debug/CSE165Platformer_autogen/include",
 	"INPUTS" : 
 	[
+		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/Images/icons8-crosshair-24.png",
+		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/Images/crosshair.png",
 		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/Images/Catge.png",
 		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/Images/monke.jpeg",
 		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/Images/MongusSprites/CSE165Sprite1.png",
@@ -45,6 +47,7 @@
 		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/Images/UISprites/Reload/Reloading5.png",
 		"/home/esteban/Documents/GitHub/CSE165Platformer/sounds/shooting.mp3",
 		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/sounds/reload_rev.mp3",
+		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/sounds/empty.mp3",
 		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/sounds/reloading.mp3",
 		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/sounds/theme.mp3",
 		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/sounds/cocking.mp3"

@@ -44,6 +44,7 @@
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qglobalstatic.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qhash.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qhashfunctions.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qiodevice.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qiodevicebase.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qiterable.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qiterator.h \
@@ -111,6 +112,7 @@
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qtversionchecks.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qtypeinfo.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qtypes.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qurl.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qutf8stringview.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qvariant.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qvarlengtharray.h \
@@ -130,18 +132,22 @@
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qkeysequence.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpaintdevice.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpalette.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpicture.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpixelformat.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpixmap.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpolygon.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qregion.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qrgb.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qrgba64.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtextdocument.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtgui-config.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtguiexports.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtguiglobal.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtransform.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qwindowdefs.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtWidgets/QWidget \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtWidgets/qframe.h \
+  /home/esteban/Qt/6.7.0/gcc_64/include/QtWidgets/qlabel.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtWidgets/qsizepolicy.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
   /home/esteban/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgetsexports.h \

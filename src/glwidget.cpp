@@ -69,6 +69,13 @@ GLWidget::GLWidget() {
     connect(mungusTwoRespawnTimer, &QTimer::timeout, this, &GLWidget::respawnMungusTwo);
     connect(skeletonEnemyRespawnTimer, &QTimer::timeout, this, &GLWidget::respawnSkeletonEnemy);
 
+    //settin curosr the cross hair
+    QPixmap crosshairPixmap(":/Images/crosshair.png");
+    QCursor crosshairCursor(crosshairPixmap, crosshairPixmap.width() / 2, crosshairPixmap.height() / 2);
+
+    // Set the cursor for the widget to the crosshair
+    setCursor(crosshairCursor);
+
 
 }
 
@@ -345,6 +352,9 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
             qDebug() << "No entity was hit.";
         }
     } else {
+        mediaPlayer->setSource(QUrl("qrc:/sounds/empty.mp3"));
+        mediaPlayer->play();
+
         qDebug() << "Out of bullets! Reload needed.";
     }
 }

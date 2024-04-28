@@ -19,8 +19,13 @@ CSE165Platformer_autogen/timestamp: \
 	/home/esteban/Documents/GitHub/CSE165Platformer/src/skeletonknife.h \
 	/home/esteban/Documents/GitHub/CSE165Platformer/src/window.cpp \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/QDebug \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/QList \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/QObject \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/QRect \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/QSize \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/QSizeF \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/QTimer \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/QUrl \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/q20functional.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/q20memory.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/q20type_traits.h \
@@ -51,10 +56,16 @@ CSE165Platformer_autogen/timestamp: \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qcontainerinfo.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qcontainertools_impl.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qcontiguouscache.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qcoreapplication.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qcoreapplication_platform.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qcoreevent.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qdarwinhelpers.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qdatastream.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qdeadlinetimer.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qdebug.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qelapsedtimer.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qendian.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qeventloop.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qexceptionhandling.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qflags.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qfloat16.h \
@@ -66,18 +77,21 @@ CSE165Platformer_autogen/timestamp: \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qglobalstatic.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qhash.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qhashfunctions.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qiodevice.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qiodevicebase.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qiterable.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qiterator.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qlatin1stringview.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qline.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qlist.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qlogging.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qmalloc.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qmap.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qmargins.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qmath.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qmetacontainer.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qmetaobject.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qmetatype.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qminmax.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qnamespace.h \
@@ -135,6 +149,7 @@ CSE165Platformer_autogen/timestamp: \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qtversionchecks.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qtypeinfo.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qtypes.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qurl.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qutf8stringview.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qvariant.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qvarlengtharray.h \
@@ -142,19 +157,27 @@ CSE165Platformer_autogen/timestamp: \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qxptype_traits.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtCore/qyieldcpu.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/QImage \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/QKeyEvent \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/QOpenGLFunctions \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/QPainter \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/QSurfaceFormat \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/QTransform \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qaction.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qbitmap.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qbrush.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qcolor.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qcursor.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qevent.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qeventpoint.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qfont.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qfontinfo.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qfontmetrics.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qicon.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qimage.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qinputdevice.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qinputmethod.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qkeysequence.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qopengl.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qopenglcontext.h \
@@ -165,20 +188,45 @@ CSE165Platformer_autogen/timestamp: \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpainter.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpalette.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpen.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpicture.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpixelformat.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpixmap.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpointingdevice.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qpolygon.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qregion.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qrgb.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qrgba64.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qscreen.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qscreen_platform.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qsurfaceformat.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtextdocument.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtextoption.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtgui-config.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtguiexports.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtguiglobal.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qtransform.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qvector2d.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qvectornd.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtGui/qwindowdefs.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtMultimedia/QAudioOutput \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtMultimedia/QMediaPlayer \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtMultimedia/qaudio.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtMultimedia/qaudiooutput.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtMultimedia/qmediaplayer.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtMultimedia/qtaudio.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtMultimedia/qtmultimediaexports.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtOpenGLWidgets/QOpenGLWidget \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtOpenGLWidgets/qopenglwidget.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtOpenGLWidgets/qtopenglwidgetsexports.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtOpenGLWidgets/qtopenglwidgetsglobal.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtWidgets/QApplication \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtWidgets/QWidget \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtWidgets/qapplication.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtWidgets/qframe.h \
+	/home/esteban/Qt/6.7.0/gcc_64/include/QtWidgets/qlabel.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtWidgets/qsizepolicy.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
 	/home/esteban/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgetsexports.h \
