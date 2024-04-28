@@ -44,5 +44,7 @@
         <file>Images/icons8-crosshair-24.png</file>
         <file>Images/crosshair.png</file>
         <file>sounds/empty.mp3</file>
+        <file>sounds/skeleton.mp3</file>
+        <file>sounds/mugus.mp3</file>
     </qresource>
 </RCC>

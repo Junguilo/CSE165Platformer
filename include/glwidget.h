@@ -46,6 +46,8 @@ private:
     QMediaPlayer *mediaPlayer;
     QAudioOutput *audioOutput;
     QMediaPlayer *backgroundPlayer;
+    QMediaPlayer *enemyDyingMediaPlayer;
+
     void keyPressEvent(QKeyEvent *event) override;
 
     //respawning enemies

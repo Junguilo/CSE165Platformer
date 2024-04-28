@@ -50,6 +50,8 @@
 		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/sounds/empty.mp3",
 		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/sounds/reloading.mp3",
 		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/sounds/theme.mp3",
+		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/sounds/skeleton.mp3",
+		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/sounds/mugus.mp3",
 		"/home/esteban/Documents/GitHub/CSE165Platformer/Assets/sounds/cocking.mp3"
 	],
 	"LOCK_FILE" : "/home/esteban/Documents/GitHub/CSE165Platformer/build/Desktop_Qt_6_2_12_GCC_64bit-Debug/CMakeFiles/CSE165Platformer_autogen.dir/AutoRcc_resources_DE6H7NGERT_Lock.lock",

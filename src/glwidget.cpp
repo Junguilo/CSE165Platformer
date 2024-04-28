@@ -34,6 +34,10 @@ GLWidget::GLWidget() {
     QAudioOutput *backgroundAudioOutput = new QAudioOutput(this);
     QMediaPlayer *backgroundPlayer = new QMediaPlayer(this);
 
+    enemyDyingMediaPlayer = new QMediaPlayer(this);
+    QAudioOutput *enemyAudioOutput = new QAudioOutput(this);
+    enemyDyingMediaPlayer->setAudioOutput(enemyAudioOutput);
+
 
     backgroundPlayer->setAudioOutput(backgroundAudioOutput);
 
@@ -303,6 +307,11 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
             if (mungusOne->getHit()) {
                 mungusOne->reduceHealth();
                 qDebug() << "Hit mungusOne with health:" << mungusOne->getHealth();
+                //mugus hit sound
+                enemyDyingMediaPlayer->setSource(QUrl("qrc:/sounds/mugus.mp3"));
+                enemyDyingMediaPlayer->play();
+
+
                 if (!mungusOne->alive) {
                     updatePoints(points + mungusOne->pointsGiven);
 
@@ -319,6 +328,10 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
             if (mungusTwo->getHit()) {
                 mungusTwo->reduceHealth();
                 qDebug() << "Hit mungusTwo with health:" << mungusTwo->getHealth();
+                //mugus hit sound
+                enemyDyingMediaPlayer->setSource(QUrl("qrc:/sounds/mugus.mp3"));
+                enemyDyingMediaPlayer->play();
+
                 if (!mungusTwo->alive) {
                     updatePoints(points + mungusTwo->pointsGiven);
 
@@ -335,6 +348,10 @@ void GLWidget::mousePressEvent(QMouseEvent *event) {
             if (skeletonEnemy->getHit()) {
                 skeletonEnemy->reduceHealth();
                 qDebug() << "Hit skeletonEnemy with health:" << skeletonEnemy->getHealth();
+                //mugus hit sound
+                enemyDyingMediaPlayer->setSource(QUrl("qrc:/sounds/skeleton.mp3"));
+                enemyDyingMediaPlayer->play();
+
                 if (!skeletonEnemy->alive) {
                     //gives the user points on enemy death
                     updatePoints(points + skeletonEnemy->pointsGiven);
