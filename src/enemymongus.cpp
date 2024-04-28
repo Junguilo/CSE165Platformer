@@ -61,29 +61,29 @@ bool EnemyMongus::isEnemyHit() const {
 
 //Draw Hitbox Lines for Debugging
 void EnemyMongus::updateHitbox(){
-    glColor3f(1.0f, 0.992f, 0.518f);
-    glBegin(GL_LINES);
-        glVertex2f(hitboxOneX, hitboxOneY);
-        glVertex2f(hitboxTwoX, hitboxTwoY);
-    glEnd();
+    //glColor3f(1.0f, 0.992f, 0.518f);
+    //glBegin(GL_LINES);
+    //    glVertex2f(hitboxOneX, hitboxOneY);
+    //    glVertex2f(hitboxTwoX, hitboxTwoY);
+    //glEnd();
 
-    glColor3f(1.0f, 0.992f, 0.518f);
-    glBegin(GL_LINES);
-    glVertex2f(hitboxTwoX, hitboxTwoY);
-    glVertex2f(hitboxThreeX, hitboxThreeY);
-    glEnd();
+    //glColor3f(1.0f, 0.992f, 0.518f);
+    //glBegin(GL_LINES);
+    //glVertex2f(hitboxTwoX, hitboxTwoY);
+    //glVertex2f(hitboxThreeX, hitboxThreeY);
+    //glEnd();
 
-    glColor3f(1.0f, 0.992f, 0.518f);
-    glBegin(GL_LINES);
-    glVertex2f(hitboxThreeX, hitboxThreeY);
-    glVertex2f(hitboxFourX, hitboxFourY);
-    glEnd();
+    //glColor3f(1.0f, 0.992f, 0.518f);
+    //glBegin(GL_LINES);
+    //glVertex2f(hitboxThreeX, hitboxThreeY);
+    //glVertex2f(hitboxFourX, hitboxFourY);
+    //glEnd();
 
-    glColor3f(1.0f, 0.992f, 0.518f);
-    glBegin(GL_LINES);
-    glVertex2f(hitboxFourX, hitboxFourY);
-    glVertex2f(hitboxOneX, hitboxOneY);
-    glEnd();
+    //glColor3f(1.0f, 0.992f, 0.518f);
+    //glBegin(GL_LINES);
+    //glVertex2f(hitboxFourX, hitboxFourY);
+    //glVertex2f(hitboxOneX, hitboxOneY);
+    //glEnd();
 
     //update hitboxes for scaling and position
     setHitbox((-0.2625f + getPositionX()) * scale, (0.1625f + getPositionY()) * scale,  // tl
